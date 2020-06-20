@@ -15,3 +15,9 @@ G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.exe
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.pdb
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MainFrame.g.cs
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MainFrame.baml
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\TagLibSharp.dll
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\TagLibSharp.pdb
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\TagLibSharp.xml
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MenuBar.g.cs
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MenuBar.baml
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.csproj.CopyComplete
