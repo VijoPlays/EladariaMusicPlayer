@@ -1,0 +1,17 @@
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\EMP.exe.config
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\EMP.exe
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\EMP.pdb
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.csprojAssemblyReference.cache
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\App.g.cs
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP_Content.g.cs
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP_MarkupCompile.cache
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP_MarkupCompile.lref
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\App.baml
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.g.resources
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.Properties.Resources.resources
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.csproj.GenerateResource.cache
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.csproj.CoreCompileInputs.cache
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.exe
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.pdb
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MainFrame.g.cs
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MainFrame.baml

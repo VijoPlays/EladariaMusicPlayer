@@ -1,0 +1,16 @@
+﻿﻿﻿own music player
+easy import/export playlist
+sort by genre, album, etc
+scan folder upon start up/button press
+sort by title and everything (wildcards?)
+maaaybe spotify/yoiutube integration?
+right click edit file (or multiple ones)
+right click show file location
+output currently playing song to txt
+change xy to z
+drag and drop
+add own images in background (faded) (also on top bar)
+
+split by " - "
+
+!! play/stop/skip by pressing on keyboard (if push comes to shove, keylistener?)
