@@ -3,10 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:EMP.main.emp.view"
         mc:Ignorable="d"
-        Title="MenuBar" Height="450" Width="800">
+        Title="MenuBar" Height="20" Width="800">
+
+    <!-- TODO: Adjust Menu Bar correctly//Copy code from MainFrame -->
+
     <Grid>
-        
+        <Menu DockPanel.Dock="Top"
+              Background="DarkSlateGray"
+              Foreground="Azure">
+            <MenuItem x:Name="MenuNewPlaylist"
+                      Header="_New Playlist"
+                      InputGestureText="Ctrl+N" />
+            <MenuItem Header="_Second">
+                <MenuItem x:Name="MenuSec"
+                          Header="_Sec"
+                          InputGestureText="Ctrl+S"
+                          Background="Gray"
+                          Foreground="Black" />
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>

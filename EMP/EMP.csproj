@@ -50,6 +50,7 @@
         <Reference Include="PresentationFramework" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
         <Compile Include="src\main\emp\view\MainFrame.xaml.cs">
           <DependentUpon>MainFrame.xaml</DependentUpon>
         </Compile>

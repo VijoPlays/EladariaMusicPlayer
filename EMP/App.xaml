@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:EMP"
              StartupUri="src/main/emp/view/MainFrame.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

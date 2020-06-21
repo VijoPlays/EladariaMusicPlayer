@@ -1,8 +1,6 @@
-﻿using System.Windows;
-
-namespace EMP.main.emp.view
+﻿namespace EMP.main.emp.view
 {
-    public partial class MenuBar : Window
+    public partial class MenuBar
     {
         public MenuBar()
         {

@@ -21,3 +21,4 @@ G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\TagLibSharp.xml
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MenuBar.g.cs
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\MenuBar.baml
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\EMP.csproj.CopyComplete
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\GeneratedInternalTypeHelper.g.cs

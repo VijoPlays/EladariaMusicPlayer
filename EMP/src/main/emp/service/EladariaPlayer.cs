@@ -1,13 +1,12 @@
-﻿﻿﻿using System.Windows.Media;
+﻿using System.Windows.Media;
 
-namespace EMP.main.service 
+namespace EMP.main.service
 {
     public class EladariaPlayer : MediaPlayer
     {
-        private bool curPlaying = false;
+        private bool curPlaying;
 
-        
-        
+
         public bool getPlaying()
         {
             return curPlaying;
