@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:controller="clr-namespace:EMP.main.emp.controller"
         xmlns:view="clr-namespace:EMP.main.emp.view"
+        xmlns:panels="clr-namespace:EMP.main.emp.view.panels"
         mc:Ignorable="d"
         Title="MainFrame"
         Height="Auto"
@@ -16,83 +17,6 @@
     <!--TODO: Change Title Bar... Borderless I guess?-->
 
     <!--TODO: Change Icon to EMP Icon="../../res/Vijosmol.jpg" - It may require .ico? If not, size-->
-
-    <Window.Resources>
-        <Style x:Key="SliderRepeatButton" TargetType="RepeatButton">
-            <Setter Property="SnapsToDevicePixels" Value="true" />
-            <Setter Property="OverridesDefaultStyle" Value="true" />
-            <Setter Property="IsTabStop" Value="false" />
-            <Setter Property="Focusable" Value="false" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="RepeatButton">
-                        <Border BorderThickness="1" BorderBrush="Black" Background="Black" Height="3" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="SliderRepeatButton1" TargetType="RepeatButton">
-            <Setter Property="SnapsToDevicePixels" Value="true" />
-            <Setter Property="OverridesDefaultStyle" Value="true" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="RepeatButton">
-                        <Border SnapsToDevicePixels="True" Background="Green" BorderThickness="1"
-                                BorderBrush="YellowGreen" Height="3" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="SliderThumb" TargetType="Thumb">
-            <Setter Property="SnapsToDevicePixels" Value="true" />
-            <Setter Property="OverridesDefaultStyle" Value="true" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Thumb">
-                        <Ellipse Height="10" Width="10" Fill="Green" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <ControlTemplate x:Key="Slider" TargetType="Slider">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Track Grid.Row="1" x:Name="PART_Track">
-                    <Track.DecreaseRepeatButton>
-                        <RepeatButton Style="{StaticResource SliderRepeatButton1}" Command="Slider.DecreaseLarge" />
-                    </Track.DecreaseRepeatButton>
-                    <Track.Thumb>
-                        <Thumb Style="{StaticResource SliderThumb}" />
-                    </Track.Thumb>
-                    <Track.IncreaseRepeatButton>
-                        <RepeatButton Style="{StaticResource SliderRepeatButton}" Command="Slider.IncreaseLarge" />
-                    </Track.IncreaseRepeatButton>
-                </Track>
-            </Grid>
-        </ControlTemplate>
-
-        <Style x:Key="EmpSlider" TargetType="Slider">
-            <Setter Property="Focusable" Value="False" />
-            <Setter Property="SnapsToDevicePixels" Value="true" />
-            <Setter Property="OverridesDefaultStyle" Value="true" />
-            <Style.Triggers>
-                <Trigger Property="Orientation" Value="Horizontal">
-                    <Setter Property="MinHeight" Value="21" />
-                    <Setter Property="MinWidth" Value="104" />
-                    <Setter Property="Template" Value="{StaticResource Slider}" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -122,24 +46,27 @@
         <StackPanel Grid.Row="0" Grid.RowSpan="2"
                     Orientation="Horizontal"
                     MaxHeight="300">
-            <Slider Name="SliderVolume"
-                    ValueChanged="ActionListenerSliderValueChanged"
-                    Thumb.DragStarted="ActionListenerSliderDragStarted"
-                    Thumb.DragCompleted="ActionListenerSliderDragCompleted"
-                    Style="{StaticResource EmpSlider}"
-                    VerticalAlignment="Center"
-                    Value="50"
-                    Minimum="0"
-                    Maximum="100"
-                    Width="80"
-                    Margin="50,0,50,0"
-                    controller:MouseWheelBehavior.Value="4" />
+
+
+            <Slider
+                Style="{StaticResource EmpSlider}"
+                Value="50"
+                Minimum="0"
+                Maximum="100"
+                Margin="50,0,50,0"
+                mc:Ignorable="d"
+                Name="SliderVolume"
+                ValueChanged="ActionListenerSliderValueChanged"
+                Thumb.DragStarted="ActionListenerSliderDragStarted"
+                Thumb.DragCompleted="ActionListenerSliderDragCompleted"
+                VerticalAlignment="Center"
+                controller:MouseWheelBehavior.Value="4" />
 
             <!--TODO: Adjust Volume properly (Margin/Layouts, save volume value (and window size and where we left off) between sessions?), Music Player, Search and Title Bar (Standard Ops) Keep Max Height in mind-->
         </StackPanel>
 
         <Grid Row="2">
-            <view:MenuBar/>
+            <view:MenuBar />
         </Grid>
 
 
@@ -153,7 +80,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="TestButton"/>
+            <Button Grid.Column="0" x:Name="TestButton" />
             <Grid Grid.Column="1" Grid.ColumnSpan="6">
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -162,12 +89,11 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                
-                <Button Grid.Row="0" x:Name="TopSide"/>
-                <ListView Grid.Row="1" Grid.RowSpan="4" Background="Gray" x:Name="ListSongs" Foreground="White">
-                </ListView>
+
+                <Button Grid.Row="0" x:Name="TopSide" />
+                <panels:SongList Grid.Row="1" Grid.RowSpan="4" />
             </Grid>
-            </Grid>
+        </Grid>
         <!--TODO: Add some Layout... + Remove Placeholder Buttons-->
 
     </Grid>

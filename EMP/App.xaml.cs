@@ -11,7 +11,8 @@ namespace EMP
     /// </summary>
     public partial class App
     {
-        private static SongGrabber songGrabber = new SongGrabber();
+        private static readonly SongGrabber songGrabber = new SongGrabber();
+
         [STAThread]
         public static void Main(string[] args)
         {

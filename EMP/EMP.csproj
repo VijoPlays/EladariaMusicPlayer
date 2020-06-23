@@ -58,7 +58,9 @@
         <Compile Include="src\main\emp\view\MenuBar.xaml.cs">
           <DependentUpon>MenuBar.xaml</DependentUpon>
         </Compile>
-        <Compile Include="src\main\emp\view\TableSetup.cs" />
+        <Compile Include="src\main\emp\view\panels\SongList.xaml.cs">
+          <DependentUpon>SongList.xaml</DependentUpon>
+        </Compile>
         <Page Include="App.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
@@ -71,6 +73,7 @@
         </Compile>
         <Page Include="src\main\emp\view\MainFrame.xaml" />
         <Page Include="src\main\emp\view\MenuBar.xaml" />
+        <Page Include="src\main\emp\view\panels\SongList.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs">
@@ -95,6 +98,9 @@
       <Content Include="prep\EMP_Mockup.png" />
       <Content Include="src\main\res\plans.txt" />
       <Content Include="src\main\res\Vijosmol.jpg" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="src\main\emp\view\empres" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
