@@ -16,8 +16,11 @@ namespace EMP.main.emp.view
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Title = "Eladaria Music Player";
+            
+            
+            menuBar.setMediaPlayer(mediaPlayer); //REMOVE
         }
-
+        //TODO: Only slide when mouse over slider
         private void ActionListenerSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (!dragStarted) 
@@ -33,6 +36,11 @@ namespace EMP.main.emp.view
         {
             mediaPlayer.Volume = SliderVolume.Value / 100;
             dragStarted = false;
+        }
+        
+        public MediaPlayer getMediaPlayer() //REMOVE
+        {
+            return mediaPlayer;
         }
     }
 }

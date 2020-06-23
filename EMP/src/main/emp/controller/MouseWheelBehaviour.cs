@@ -4,8 +4,10 @@ using System.Windows.Input;
 
 namespace EMP.main.emp.controller
 {
-    public class MouseWheelBehavior
+    public static class MouseWheelBehavior
     {
+        private static bool mouseOverVol;
+        
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.RegisterAttached(
                 "Value",
@@ -69,6 +71,11 @@ namespace EMP.main.emp.controller
             var slider = GetSlider(window);
             var value = GetValue(slider);
             if (slider != null && value != 0) slider.Value += slider.SmallChange * e.Delta / value;
+        }
+
+        public static void setMouseOverVol(bool mouseOverVol)
+        {
+            MouseWheelBehavior.mouseOverVol = mouseOverVol;
         }
     }
 }
