@@ -50,13 +50,12 @@
 
             <Slider
                 Style="{StaticResource EmpSlider}"
-                Value="50"
+                Value="{Binding SliderPosition, Mode=TwoWay}"
                 Minimum="0"
                 Maximum="100"
                 Margin="50,0,50,0"
                 mc:Ignorable="d"
                 Name="SliderVolume"
-                ValueChanged="ActionListenerSliderValueChanged"
                 Thumb.DragStarted="ActionListenerSliderDragStarted"
                 Thumb.DragCompleted="ActionListenerSliderDragCompleted"
                 VerticalAlignment="Center"
@@ -90,7 +89,7 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="0" x:Name="TopSide" />
+                <TextBox Grid.Row="0" x:Name="TestBox" />
                 <panels:SongList Grid.Row="1" Grid.RowSpan="4" />
             </Grid>
         </Grid>

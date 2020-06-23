@@ -1,12 +1,16 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using EMP.Annotations;
 using EMP.main.emp.controller;
 
 namespace EMP.main.emp.view
 {
-    public partial class MainFrame
+    public partial class MainFrame : INotifyPropertyChanged
     {
         private static readonly MediaPlayer mediaPlayer = new MediaPlayer();
         private static bool playing, dragStarted, mouseOverVol;
@@ -20,6 +24,9 @@ namespace EMP.main.emp.view
 
             SliderVolume.MouseEnter += mouseOverEnterVol;
             SliderVolume.MouseLeave += mouseOverLeaveVol;
+            SliderVolume.ValueChanged += ActionListenerSliderValueChanged;
+
+            TestButton.Click += jumpButton; //REMOVE
 
             menuBar.setMediaPlayer(mediaPlayer); //REMOVE
         }
@@ -27,17 +34,22 @@ namespace EMP.main.emp.view
         //TODO: Only slide when mouse over slider
         private void ActionListenerSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            sliderVal = mediaPlayer.Volume * 100;
             if (mouseOverVol)
+            {
                 if (!dragStarted)
                     mediaPlayer.Volume = SliderVolume.Value / 100;
+            }
+            else
+            {
+                SliderVolume.Value = sliderVal;
+            }
         }
 
         private void ActionListenerSliderDragStarted(object sender, DragStartedEventArgs e)
         {
             if (mouseOverVol)
                 dragStarted = true;
-            else
-                sliderVal = SliderVolume.Value;
         }
 
         private void ActionListenerSliderDragCompleted(object sender, DragCompletedEventArgs e)
@@ -47,12 +59,8 @@ namespace EMP.main.emp.view
                 mediaPlayer.Volume = SliderVolume.Value / 100;
                 dragStarted = false;
             }
-            else
-            {
-                SliderVolume.Value = sliderVal; //TODO: Slider Value does not reset if !MouseOver
-            }
         }
-        
+
         private void mouseOverEnterVol(object sender, EventArgs e)
         {
             mouseOverVol = true;
@@ -66,6 +74,18 @@ namespace EMP.main.emp.view
         public MediaPlayer getMediaPlayer() //REMOVE
         {
             return mediaPlayer;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void jumpButton(object sender, EventArgs e) //REMOVE
+        {
         }
     }
 }
