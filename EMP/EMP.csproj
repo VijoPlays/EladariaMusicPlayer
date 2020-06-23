@@ -50,6 +50,7 @@
         <Reference Include="PresentationFramework" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Properties\Annotations.cs" />
         <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
         <Compile Include="src\main\emp\service\SongGrabber.cs" />
         <Compile Include="src\main\emp\view\MainFrame.xaml.cs">
@@ -58,7 +59,9 @@
         <Compile Include="src\main\emp\view\MenuBar.xaml.cs">
           <DependentUpon>MenuBar.xaml</DependentUpon>
         </Compile>
-        <Compile Include="src\main\emp\view\TableSetup.cs" />
+        <Compile Include="src\main\emp\view\panels\SongList.xaml.cs">
+          <DependentUpon>SongList.xaml</DependentUpon>
+        </Compile>
         <Page Include="App.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
@@ -71,6 +74,7 @@
         </Compile>
         <Page Include="src\main\emp\view\MainFrame.xaml" />
         <Page Include="src\main\emp\view\MenuBar.xaml" />
+        <Page Include="src\main\emp\view\panels\SongList.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,8 +97,12 @@
     <ItemGroup>
       <Content Include="prep\EMP_drawioMockUp.drawio" />
       <Content Include="prep\EMP_Mockup.png" />
+      <Content Include="src\main\res\durationsliderr" />
       <Content Include="src\main\res\plans.txt" />
       <Content Include="src\main\res\Vijosmol.jpg" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="src\main\emp\view\empres" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

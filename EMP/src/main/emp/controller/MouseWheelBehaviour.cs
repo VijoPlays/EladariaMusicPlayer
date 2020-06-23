@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace EMP.main.emp.controller
 {
-    public class MouseWheelBehavior
+    public static class MouseWheelBehavior
     {
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.RegisterAttached(
@@ -68,7 +68,13 @@ namespace EMP.main.emp.controller
             var window = sender as Window;
             var slider = GetSlider(window);
             var value = GetValue(slider);
-            if (slider != null && value != 0) slider.Value += slider.SmallChange * e.Delta / value;
+            if (slider != null && value != 0)
+                slider.Value += slider.SmallChange * e.Delta / value;
+        }
+
+        public static DependencyProperty getSliderProperty()
+        {
+            return SliderProperty;
         }
     }
 }

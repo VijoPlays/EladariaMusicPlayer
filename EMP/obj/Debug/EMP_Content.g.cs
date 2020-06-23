@@ -10,6 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("prep/emp_drawiomockup.drawio")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("prep/emp_mockup.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/main/res/durationsliderr")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/main/res/plans.txt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/main/res/vijosmol.jpg")]
 

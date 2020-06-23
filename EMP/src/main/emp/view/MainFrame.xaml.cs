@@ -1,43 +1,83 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using EMP.main.service;
+using EMP.Annotations;
+using EMP.main.emp.controller;
 
 namespace EMP.main.emp.view
 {
     public partial class MainFrame
     {
         private static readonly MediaPlayer mediaPlayer = new MediaPlayer();
-        private static bool dragStarted, playing;
-        private static SongGrabber songGrabber = new SongGrabber();
+        private static bool playing, dragStarted, mouseOverVol;
+        private double sliderVal = 0;
 
         public MainFrame()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Title = "Eladaria Music Player";
-            
-            //Inits songs
-            ListSongs.Items.Add(songGrabber.addSong());
 
+            SliderVolume.MouseEnter += mouseOverEnterVol;
+            SliderVolume.MouseLeave += mouseOverLeaveVol;
+            SliderVolume.ValueChanged += ActionListenerSliderValueChanged;
+
+            TestButton.Click += jumpButton; //REMOVE
+
+            menuBar.setMediaPlayer(mediaPlayer); //REMOVE
         }
 
+        //TODO: Only slide when mouse over slider
         private void ActionListenerSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (!dragStarted) mediaPlayer.Volume = SliderVolume.Value / 100;
+            sliderVal = mediaPlayer.Volume * 100;
+            if (mouseOverVol)
+            {
+                if (!dragStarted)
+                    mediaPlayer.Volume = SliderVolume.Value / 100;
+            }
+            else
+            {
+                SliderVolume.Value = sliderVal;
+            }
         }
 
         private void ActionListenerSliderDragStarted(object sender, DragStartedEventArgs e)
         {
-            dragStarted = true;
+            if (mouseOverVol)
+                dragStarted = true;
         }
 
         private void ActionListenerSliderDragCompleted(object sender, DragCompletedEventArgs e)
         {
-            mediaPlayer.Volume = SliderVolume.Value / 100;
-            dragStarted = false;
+            if (mouseOverVol)
+            {
+                mediaPlayer.Volume = SliderVolume.Value / 100;
+                dragStarted = false;
+            }
+        }
+
+        private void mouseOverEnterVol(object sender, EventArgs e)
+        {
+            mouseOverVol = true;
+        }
+
+        private void mouseOverLeaveVol(object sender, EventArgs e)
+        {
+            mouseOverVol = false;
+        }
+
+        public MediaPlayer getMediaPlayer() //REMOVE
+        {
+            return mediaPlayer;
+        }
+
+        public void jumpButton(object sender, EventArgs e) //REMOVE
+        {
         }
     }
 }
