@@ -6,6 +6,7 @@
         xmlns:controller="clr-namespace:EMP.main.emp.controller"
         xmlns:view="clr-namespace:EMP.main.emp.view"
         xmlns:panels="clr-namespace:EMP.main.emp.view.panels"
+        xmlns:empres="clr-namespace:EMP.main.emp.view.empres"
         mc:Ignorable="d"
         Title="MainFrame"
         Height="Auto"
@@ -47,27 +48,13 @@
                     Orientation="Horizontal"
                     MaxHeight="300">
 
+            <empres:SliderEMP x:Name="SliderVolume" />
 
-            <Slider
-                Style="{StaticResource EmpSlider}"
-                Value="50"
-                Minimum="0"
-                Maximum="100"
-                Margin="50,0,50,0"
-                mc:Ignorable="d"
-                Name="SliderVolume"
-                Thumb.DragStarted="ActionListenerSliderDragStarted"
-                Thumb.DragCompleted="ActionListenerSliderDragCompleted"
-                VerticalAlignment="Center"
-                controller:MouseWheelBehavior.Value="4" />
-
-            <!--TODO: Adjust Volume properly (Margin/Layouts, save volume value (and window size and where we left off) between sessions?), Music Player, Search and Title Bar (Standard Ops) Keep Max Height in mind-->
         </StackPanel>
 
         <Grid Row="2">
             <view:MenuBar x:Name="menuBar" />
         </Grid>
-
 
         <Grid Row="3" Grid.RowSpan="19">
             <Grid.ColumnDefinitions>
@@ -93,8 +80,7 @@
                 <panels:SongList Grid.Row="1" Grid.RowSpan="4" />
             </Grid>
         </Grid>
-        <!--TODO: Add some Layout... + Remove Placeholder Buttons-->
+        <!--TODO: Add some Layout... + Remove Placeholders-->
 
     </Grid>
-    <!--TODO: Clean Code up by calling MenuBar and such instead of using their code here -->
 </Window>

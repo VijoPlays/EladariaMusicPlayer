@@ -53,6 +53,9 @@
         <Compile Include="Properties\Annotations.cs" />
         <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
         <Compile Include="src\main\emp\service\SongGrabber.cs" />
+        <Compile Include="src\main\emp\view\empres\SliderEMP.xaml.cs">
+          <DependentUpon>SliderEMP.xaml</DependentUpon>
+        </Compile>
         <Compile Include="src\main\emp\view\MainFrame.xaml.cs">
           <DependentUpon>MainFrame.xaml</DependentUpon>
         </Compile>
@@ -72,6 +75,7 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="src\main\emp\view\empres\SliderEMP.xaml" />
         <Page Include="src\main\emp\view\MainFrame.xaml" />
         <Page Include="src\main\emp\view\MenuBar.xaml" />
         <Page Include="src\main\emp\view\panels\SongList.xaml" />
@@ -100,9 +104,6 @@
       <Content Include="src\main\res\durationsliderr" />
       <Content Include="src\main\res\plans.txt" />
       <Content Include="src\main\res\Vijosmol.jpg" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="src\main\emp\view\empres" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
