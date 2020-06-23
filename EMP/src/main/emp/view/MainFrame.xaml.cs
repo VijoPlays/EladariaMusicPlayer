@@ -10,7 +10,7 @@ using EMP.main.emp.controller;
 
 namespace EMP.main.emp.view
 {
-    public partial class MainFrame : INotifyPropertyChanged
+    public partial class MainFrame
     {
         private static readonly MediaPlayer mediaPlayer = new MediaPlayer();
         private static bool playing, dragStarted, mouseOverVol;
@@ -74,14 +74,6 @@ namespace EMP.main.emp.view
         public MediaPlayer getMediaPlayer() //REMOVE
         {
             return mediaPlayer;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public void jumpButton(object sender, EventArgs e) //REMOVE

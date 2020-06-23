@@ -50,7 +50,7 @@
 
             <Slider
                 Style="{StaticResource EmpSlider}"
-                Value="{Binding SliderPosition, Mode=TwoWay}"
+                Value="50"
                 Minimum="0"
                 Maximum="100"
                 Margin="50,0,50,0"
