@@ -13,7 +13,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RepeatButton">
-                        <Border BorderThickness="1" BorderBrush="Black" Background="Black" Height="3" />
+                        <Border BorderThickness="1" BorderBrush="Black" Background="Black" Height="4" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -26,13 +26,13 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="RepeatButton">
                         <Border SnapsToDevicePixels="True" Background="Green" BorderThickness="1"
-                                BorderBrush="YellowGreen" Height="3" />
+                                BorderBrush="YellowGreen" Height="5" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <Style x:Key="SliderThumb" TargetType="Thumb">
+        <Style x:Key="SliderThumb" TargetType="Thumb" x:Name ="Thumb">
             <Setter Property="SnapsToDevicePixels" Value="true" />
             <Setter Property="OverridesDefaultStyle" Value="true" />
             <Setter Property="Template">

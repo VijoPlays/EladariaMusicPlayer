@@ -16,5 +16,5 @@ DEBUG;TRACE
 101618163088
 App.xaml;src\main\emp\view\MainFrame.xaml;src\main\emp\view\MenuBar.xaml;src\main\emp\view\panels\SongList.xaml;
 
-False
+True
 
