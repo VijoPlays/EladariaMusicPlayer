@@ -51,12 +51,14 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
+        <Compile Include="src\main\emp\service\SongGrabber.cs" />
         <Compile Include="src\main\emp\view\MainFrame.xaml.cs">
           <DependentUpon>MainFrame.xaml</DependentUpon>
         </Compile>
         <Compile Include="src\main\emp\view\MenuBar.xaml.cs">
           <DependentUpon>MenuBar.xaml</DependentUpon>
         </Compile>
+        <Compile Include="src\main\emp\view\TableSetup.cs" />
         <Page Include="App.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>

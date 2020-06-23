@@ -139,25 +139,11 @@
         </StackPanel>
 
         <Grid Row="2">
-            <Menu DockPanel.Dock="Top"
-                  Background="DarkSlateGray"
-                  Foreground="Azure">
-                <MenuItem x:Name="MenuNewPlaylist"
-                          Header="_New Playlist"
-                          InputGestureText="Ctrl+N" />
-                <MenuItem Header="_Second">
-                    <MenuItem x:Name="MenuSec"
-                              Header="_Sec"
-                              InputGestureText="Ctrl+S"
-                              Background="Gray"
-                              Foreground="Black" />
-                </MenuItem>
-            </Menu>
+            <view:MenuBar/>
         </Grid>
 
 
         <Grid Row="3" Grid.RowSpan="19">
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -167,9 +153,21 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" />
-            <Button Grid.Column="1" Grid.ColumnSpan="6" />
-        </Grid>
+            <Button Grid.Column="0" x:Name="TestButton"/>
+            <Grid Grid.Column="1" Grid.ColumnSpan="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                
+                <Button Grid.Row="0" x:Name="TopSide"/>
+                <ListView Grid.Row="1" Grid.RowSpan="4" Background="Gray" x:Name="ListSongs" Foreground="White">
+                </ListView>
+            </Grid>
+            </Grid>
         <!--TODO: Add some Layout... + Remove Placeholder Buttons-->
 
     </Grid>

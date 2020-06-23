@@ -1,31 +1,27 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using EMP.main.service;
 
 namespace EMP.main.emp.view
 {
-    public partial class MainFrame : Window
+    public partial class MainFrame
     {
         private static readonly MediaPlayer mediaPlayer = new MediaPlayer();
-        private bool dragStarted;
+        private static bool dragStarted, playing;
+        private static SongGrabber songGrabber = new SongGrabber();
 
         public MainFrame()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Title = "Eladaria Music Player";
-            MenuNewPlaylist.Click += ActionListenerNewPlayList;
-        }
+            
+            //Inits songs
+            ListSongs.Items.Add(songGrabber.addSong());
 
-        private static void ActionListenerNewPlayList(object sender, RoutedEventArgs routedEventArgs)
-        {
-            //TODO: Create New Playlist, for now it's a sound test
-
-            var songLocation = "G:/Jailhouserock/Great Gubal Library - FFXIV.mp3";
-            var uriSong = new Uri(songLocation);
-            mediaPlayer.Open(uriSong);
-            mediaPlayer.Play();
         }
 
         private void ActionListenerSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

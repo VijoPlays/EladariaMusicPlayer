@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Media;
+using EMP.main.service;
 using File = TagLib.File;
 
 namespace EMP
@@ -10,9 +11,11 @@ namespace EMP
     /// </summary>
     public partial class App
     {
+        private static SongGrabber songGrabber = new SongGrabber();
         [STAThread]
         public static void Main(string[] args)
         {
+            songGrabber.addSong();
             var app = new App();
             app.InitializeComponent();
             app.Run();
