@@ -6,13 +6,13 @@ using System.Windows.Media;
 
 namespace EMP.main.emp.view.empres
 {
-    public partial class SliderEMP : Slider
+    public partial class SliderVolumeEMP : Slider
     {
         private static bool dragStarted, mouseOverVol;
         private MediaPlayer mediaPlayer;
         private double sliderVal;
 
-        public SliderEMP()
+        public SliderVolumeEMP()
         {
             InitializeComponent();
 

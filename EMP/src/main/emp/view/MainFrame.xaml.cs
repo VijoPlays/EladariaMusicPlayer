@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using EMP.main.emp.service.persistence;
 
 namespace EMP.main.emp.view
 {
@@ -8,6 +9,7 @@ namespace EMP.main.emp.view
     {
         private static readonly MediaPlayer mediaPlayer = new MediaPlayer();
         private static bool playing;
+        private static Configs configs = new Configs();
 
         public MainFrame()
         {
@@ -19,15 +21,33 @@ namespace EMP.main.emp.view
 
             SliderVolume.setMediaPlayer(mediaPlayer);
             menuBar.setMediaPlayer(mediaPlayer); //REMOVE
-        }
-
-        public MediaPlayer getMediaPlayer() //REMOVE
-        {
-            return mediaPlayer;
+            Closed += processTerminated;
+            
+            setUpSettings();
         }
 
         public void jumpButton(object sender, EventArgs e) //REMOVE
         {
+        }
+
+        private void setUpSettings()
+        {
+            string volume = configs.getVolume();
+            if (string.IsNullOrEmpty(volume))
+            {
+                SliderVolume.Value = 50;
+                mediaPlayer.Volume = .5;
+            }
+            else
+            {
+                mediaPlayer.Volume = Convert.ToDouble(volume) / 100;
+                SliderVolume.Value = Convert.ToDouble(volume);
+            }
+        }
+
+        private void processTerminated(object sender, EventArgs eventArgs)
+        {
+            configs.setVolume(SliderVolume.Value.ToString());
         }
     }
 }

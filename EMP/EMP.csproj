@@ -52,9 +52,11 @@
     <ItemGroup>
         <Compile Include="Properties\Annotations.cs" />
         <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
+        <Compile Include="src\main\emp\service\persistence\Configs.cs" />
+        <Compile Include="src\main\emp\service\persistence\IniCreator.cs" />
         <Compile Include="src\main\emp\service\SongGrabber.cs" />
-        <Compile Include="src\main\emp\view\empres\SliderEMP.xaml.cs">
-          <DependentUpon>SliderEMP.xaml</DependentUpon>
+        <Compile Include="src\main\emp\view\empres\SliderVolumeVolumeEMP.xaml.cs">
+          <DependentUpon>SliderVolumeEMP.xaml</DependentUpon>
         </Compile>
         <Compile Include="src\main\emp\view\MainFrame.xaml.cs">
           <DependentUpon>MainFrame.xaml</DependentUpon>
@@ -75,7 +77,7 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Page Include="src\main\emp\view\empres\SliderEMP.xaml" />
+        <Page Include="src\main\emp\view\empres\SliderVolumeEMP.xaml" />
         <Page Include="src\main\emp\view\MainFrame.xaml" />
         <Page Include="src\main\emp\view\MenuBar.xaml" />
         <Page Include="src\main\emp\view\panels\SongList.xaml" />

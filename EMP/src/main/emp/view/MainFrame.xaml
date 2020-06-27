@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:controller="clr-namespace:EMP.main.emp.controller"
         xmlns:view="clr-namespace:EMP.main.emp.view"
         xmlns:panels="clr-namespace:EMP.main.emp.view.panels"
         xmlns:empres="clr-namespace:EMP.main.emp.view.empres"
@@ -48,7 +47,7 @@
                     Orientation="Horizontal"
                     MaxHeight="300">
 
-            <empres:SliderEMP x:Name="SliderVolume" />
+            <empres:SliderVolumeEMP x:Name="SliderVolume" />
 
         </StackPanel>
 

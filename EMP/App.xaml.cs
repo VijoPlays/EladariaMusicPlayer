@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Media;
+using EMP.main.emp.service.persistence;
 using EMP.main.service;
 using File = TagLib.File;
 
