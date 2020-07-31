@@ -82,7 +82,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Grid.Row="0" x:Name="TestBox" />
-                <panels:SongList Grid.Row="1" Grid.RowSpan="4" />
+                <panels:SongList Grid.Row="1" Grid.RowSpan="4" x:Name="SongList"/>
             </Grid>
         </Grid>
         <!--TODO: Add some Layout... + Remove Placeholders-->

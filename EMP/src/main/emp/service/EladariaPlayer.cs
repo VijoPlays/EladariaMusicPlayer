@@ -4,17 +4,16 @@ namespace EMP.main.service
 {
     public class EladariaPlayer : MediaPlayer
     {
-        private bool curPlaying;
-
+        private bool playing;
 
         public bool getPlaying()
         {
-            return curPlaying;
+            return playing;
         }
 
         public void setPlaying(bool currentlyPlaying)
         {
-            curPlaying = currentlyPlaying;
+            playing = currentlyPlaying;
         }
     }
 }

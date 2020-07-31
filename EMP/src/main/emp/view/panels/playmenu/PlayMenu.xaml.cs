@@ -2,38 +2,39 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using EMP.main.service;
 
 namespace EMP.main.emp.view.panels
 {
     public partial class PlayMenu : Grid
     {
-        private MediaPlayer mediaPlayer;
+        private EladariaPlayer mediaPlayer;
         private bool playing;
-        private string songName = "G:/Jailhouserock/Paisley Park - Prince.mp3"; //TODO: Song Location == Currently selected Item in list (remove Great Gubal Lib), prevent hardcoded path
         private TimeSpan songProgress;
         public PlayMenu()
         {
             InitializeComponent();
+            
             btn_Play.Click += playMusic;
         }
         
         private void playMusic(object sender, EventArgs e)
         { //TODO: Change Image_Play icon when music is playing
-            if (playing)
+            if (mediaPlayer.getPlaying())
             {
                 songProgress = mediaPlayer.Position;
-                mediaPlayer.Stop();
-                playing = false;
+                mediaPlayer.Pause();
+                mediaPlayer.setPlaying(false);
             }
             else
             {
-                Uri uriSong = new Uri(songName);
-                mediaPlayer.Open(uriSong);
                 mediaPlayer.Position = songProgress;
                 mediaPlayer.Play(); //TODO: Continuous play/Playqueue
-                playing = true;
+                mediaPlayer.setPlaying(true);
             }
+                
         }
+        
         private void skipSong(object sender, EventArgs e)
         {
             songProgress = TimeSpan.Zero;
@@ -47,9 +48,14 @@ namespace EMP.main.emp.view.panels
             //TODO: Add Previous mechanic
         }
 
-        public void setMediaPlayer(MediaPlayer mediaPlayer)
+        public void setMediaPlayer(EladariaPlayer mediaPlayer)
         {
             this.mediaPlayer = mediaPlayer;
+        }
+        
+        public void setPlaying(bool playing)
+        {
+            this.playing = playing;
         }
     }
 }

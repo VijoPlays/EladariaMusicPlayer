@@ -2,13 +2,14 @@
 using System.Windows;
 using System.Windows.Media;
 using EMP.main.emp.service.persistence;
+using EMP.main.emp.view.panels;
+using EMP.main.service;
 
 namespace EMP.main.emp.view
 {
     public partial class MainFrame
     {
-        private static readonly MediaPlayer mediaPlayer = new MediaPlayer();
-        private static bool playing;
+        private static readonly EladariaPlayer mediaPlayer = new EladariaPlayer();
         private static Configs configs = new Configs();
 
         public MainFrame()
@@ -18,10 +19,7 @@ namespace EMP.main.emp.view
             Title = "Eladaria Music Player";
 
             TestButton.Click += jumpButton; //REMOVE
-
-            SliderVolume.setMediaPlayer(mediaPlayer);
-            PlayMenu.setMediaPlayer(mediaPlayer);
-            menuBar.setMediaPlayer(mediaPlayer); //REMOVE
+            setMediaPlayers();
             Closed += processTerminated;
             
             setUpSettings();
@@ -49,6 +47,13 @@ namespace EMP.main.emp.view
         private void processTerminated(object sender, EventArgs eventArgs)
         {
             configs.setVolume(SliderVolume.Value.ToString());
+        }
+
+        private void setMediaPlayers()
+        {
+            SongList.setMediaPlayer(mediaPlayer);
+            SliderVolume.setMediaPlayer(mediaPlayer);
+            PlayMenu.setMediaPlayer(mediaPlayer);
         }
     }
 }

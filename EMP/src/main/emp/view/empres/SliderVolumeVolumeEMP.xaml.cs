@@ -3,13 +3,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using EMP.main.service;
 
 namespace EMP.main.emp.view.empres
 {
     public partial class SliderVolumeEMP : Slider
     {
         private static bool dragStarted, mouseOverVol;
-        private MediaPlayer mediaPlayer;
+        private EladariaPlayer mediaPlayer;
         private double sliderVal;
 
         public SliderVolumeEMP()
@@ -60,7 +61,7 @@ namespace EMP.main.emp.view.empres
             mouseOverVol = false;
         }
 
-        public void setMediaPlayer(MediaPlayer mediaPlayer)
+        public void setMediaPlayer(EladariaPlayer mediaPlayer)
         {
             this.mediaPlayer = mediaPlayer;
         }
