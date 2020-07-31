@@ -20,6 +20,7 @@ namespace EMP.main.emp.view
             TestButton.Click += jumpButton; //REMOVE
 
             SliderVolume.setMediaPlayer(mediaPlayer);
+            PlayMenu.setMediaPlayer(mediaPlayer);
             menuBar.setMediaPlayer(mediaPlayer); //REMOVE
             Closed += processTerminated;
             

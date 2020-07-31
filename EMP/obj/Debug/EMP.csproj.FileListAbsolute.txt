@@ -26,3 +26,5 @@ G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\panels\SongList.g.cs
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\panels\SongList.baml
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\empres\SliderVolumeEMP.g.cs
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\empres\SliderVolumeEMP.baml
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\panels\playmenu\PlayMenu.baml
+G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\panels\playmenu\PlayMenu.g.cs

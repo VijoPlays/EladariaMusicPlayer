@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-5409840189
-5727252210
-14-1781680002
+6-568957695
+5-2099985072
+151512864210
 101618163088
-App.xaml;src\main\emp\view\empres\SliderVolumeEMP.xaml;src\main\emp\view\MainFrame.xaml;src\main\emp\view\MenuBar.xaml;src\main\emp\view\panels\SongList.xaml;
+App.xaml;src\main\emp\view\empres\SliderVolumeEMP.xaml;src\main\emp\view\MainFrame.xaml;src\main\emp\view\MenuBar.xaml;src\main\emp\view\panels\playmenu\PlayMenu.xaml;src\main\emp\view\panels\SongList.xaml;
 
 False
 

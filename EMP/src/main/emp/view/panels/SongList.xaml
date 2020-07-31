@@ -9,5 +9,5 @@
           Background="Gray"
           x:Name="ListSongs"
           Foreground="White">
-    <Grid />
+    
 </ListView>

@@ -17,11 +17,7 @@ namespace EMP.main.emp.view
 
         private void ActionListenerNewPlayList(object sender, RoutedEventArgs routedEventArgs)
         {
-            //TODO: Create New Playlist, for now it's a sound test
-            var songLocation = "G:/Jailhouserock/Great Gubal Library - FFXIV.mp3";
-            var uriSong = new Uri(songLocation);
-            mediaPlayer.Open(uriSong);
-            mediaPlayer.Play();
+            //TODO: Create New Playlist
         }
 
         public void setMediaPlayer(MediaPlayer mediaPlayer)
