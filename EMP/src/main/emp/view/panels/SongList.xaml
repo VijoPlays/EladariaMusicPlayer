@@ -23,16 +23,16 @@
         </Style>
         <Style TargetType="{x:Type DataGridRow}">
             <Setter Property="Background" Value="Gray"/>
-            <EventSetter Event="MouseDown" Handler="playSong"/>
-            <EventSetter Event="MouseRightButtonDown" Handler="playSong"/>
+            <EventSetter Event="MouseDoubleClick" Handler="playSong"/>
+            <EventSetter Event="MouseRightButtonDown" Handler="rightClick"/>
         </Style>
     </DataGrid.Resources>
     <DataGrid.Columns>
-        <DataGridTextColumn Header="Count" Binding="{Binding Count}" Width="Auto" MinWidth="60"/>
-        <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="Auto" MinWidth="400"/>
-        <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" Width="Auto" MinWidth="80"/>
-        <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="Auto" MinWidth="100"/>
-        <DataGridTextColumn Header="Album" Binding="{Binding Album}" Width="Auto" MinWidth="100"/>
-        <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" Width="*" MinWidth="150" MaxWidth="200"/>
+        <DataGridTextColumn Header="Count" Binding="{Binding Count, Mode=OneWay}" Width="Auto" MinWidth="60"/>
+        <DataGridTextColumn Header="Title" Binding="{Binding Title, Mode=OneWay}" Width="Auto" MinWidth="400"/>
+        <DataGridTextColumn Header="Duration" Binding="{Binding Duration, Mode=OneWay}" Width="Auto" MinWidth="80"/>
+        <DataGridTextColumn Header="Genre" Binding="{Binding Genre, Mode=OneWay}" Width="Auto" MinWidth="100"/>
+        <DataGridTextColumn Header="Album" Binding="{Binding Album, Mode=OneWay}" Width="Auto" MinWidth="100"/>
+        <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded, Mode=OneWay}" Width="*" MinWidth="150" MaxWidth="200"/>
     </DataGrid.Columns>
 </DataGrid>
