@@ -54,7 +54,6 @@
         <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
         <Compile Include="src\main\emp\service\persistence\Configs.cs" />
         <Compile Include="src\main\emp\service\persistence\IniCreator.cs" />
-        <Compile Include="src\main\emp\service\SongGrabber.cs" />
         <Compile Include="src\main\emp\view\empres\SliderVolumeVolumeEMP.xaml.cs">
           <DependentUpon>SliderVolumeEMP.xaml</DependentUpon>
         </Compile>

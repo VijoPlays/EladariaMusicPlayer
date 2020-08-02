@@ -20,6 +20,7 @@ namespace EMP.main.emp.view
 
             TestButton.Click += jumpButton; //REMOVE
             setMediaPlayers();
+            
             Closed += processTerminated;
             
             setUpSettings();

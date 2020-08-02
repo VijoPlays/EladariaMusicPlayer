@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using EMP.main.emp.service;
+using EMP.main.emp.service.persistence;
 using EMP.main.service;
 
 namespace EMP.main.emp.view.panels
@@ -13,7 +12,8 @@ namespace EMP.main.emp.view.panels
     public partial class SongList : DataGrid
     {
         private EladariaPlayer mediaPlayer;
-        private Dictionary<int, string> songDictionary = new Dictionary<int, string>(); 
+        private Dictionary<int, string> songDictionary = new Dictionary<int, string>();
+        private static Configs configs = new Configs();
         public SongList()
         {
             InitializeComponent();
@@ -41,31 +41,64 @@ namespace EMP.main.emp.view.panels
 
         private void fillSongs()
         { //TODO: Add compatibility with other sound files
-            int i = 1;
-            Song song = new Song();
-            foreach (var file in SongGrabber.getDirectoryInfo().GetFiles("*.mp3"))
+            int i = 1, j = 0;
+            Song song;
+
+            List<string> pathlist = configs.getPaths();
+            
+            while (j < pathlist.Count)
             {
-                song = new Song();
-                TagLib.File tagFile = TagLib.File.Create(file.FullName);
-                song.Count = i; 
-                song.Title = tagFile.Tag.Title;
-                song.Duration = tagFile.Properties.Duration.ToString(); //TODO: Evtl auf Mins + Secs kürzen
-                // TODO: Playcount?
-                song.Genre = tagFile.Tag.FirstGenre;
-                song.Album = tagFile.Tag.Album;
-                song.DateAdded = tagFile.Tag.DateTagged.ToString();
+                DirectoryInfo directoryInfo = new DirectoryInfo(pathlist[j]);
+
+                foreach (var file in directoryInfo.GetFiles("*.mp3"))
+                {
+                    song = new Song();
+                    TagLib.File tagFile = TagLib.File.Create(file.FullName);
+                    TimeSpan duration = tagFile.Properties.Duration;
+                    
+                    song.Count = i; 
+                    song.Title = tagFile.Tag.Title;
+                    song.Duration = calcTime(duration.Seconds, duration.Minutes);
+                    // TODO: Playcount?
+                    song.Genre = tagFile.Tag.FirstGenre;
+                    song.Album = tagFile.Tag.Album;
+                    song.DateAdded = tagFile.Tag.DateTagged.ToString();
                 
-                //TODO: Sorting function, resize and drag/move headers around option (only headers, then refresh the table afterwards)
-                GridSongs.Items.Add(song);
-                songDictionary.Add(i, file.FullName); //TODO: Achtung, wenn die Liste umstrukturiert wird is diese rip, da sie den Index nutzt
-                // 
-                 // var length = tagFile.Properties.Duration.ToString();
-                 i++;
+                    //TODO: Save Header positions + size and preferred sorting
+                    GridSongs.Items.Add(song);
+                    i++;
+                }
+                j++;
             }
         }
 
+        private string calcTime(int seconds, int minutes)
+        {
+            string time;
+            
+            if (minutes <= 9)
+            {
+                time = "0" + minutes;
+            }
+            else
+            {
+                time = minutes.ToString();
+            }
+
+            if (seconds <= 9)
+            {
+                time = time + ":" + "0" + seconds;
+            }
+            else
+            {
+                time = time + ":" + seconds;
+            }
+
+            return time;
+        }
+
         private void playSong(object sender, MouseButtonEventArgs mouseButtonEventArgs)
-        { //TODO: Fix Double Click event, then change right click event to proper right clicking
+        {
             Song row = (Song) GridSongs.SelectedItems[0];
             int index = row.Count;
             String path;
@@ -77,7 +110,7 @@ namespace EMP.main.emp.view.panels
 
         private void rightClick(object sender, MouseButtonEventArgs mouseButtonEventArgs)
         {
-      //TODO: Add functionality      
+            //TODO: Add functionality      
         }
     }
 }
