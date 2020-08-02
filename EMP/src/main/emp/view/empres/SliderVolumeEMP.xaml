@@ -18,6 +18,6 @@
         controller:MouseWheelBehavior.Value="4"
         x:Name="SliderVolume">
 
-    <!--TODO: Adjust Volume (Margin/Layouts) properly, save volume value (and window size and where we left off) between sessions?), Music Player, Search and Title Bar (Standard Ops) Keep Max Height in mind-->
+    <!--TODO: save window size (and where we left off between sessions?), Music Player, Search and Title Bar (Standard Ops) Keep Max Height in mind-->
 
 </Slider>

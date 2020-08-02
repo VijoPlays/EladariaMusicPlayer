@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Media;
 using EMP.main.emp.service.persistence;
-using EMP.main.emp.view.panels;
 using EMP.main.service;
 
 namespace EMP.main.emp.view
@@ -10,7 +8,7 @@ namespace EMP.main.emp.view
     public partial class MainFrame
     {
         private static readonly EladariaPlayer mediaPlayer = new EladariaPlayer();
-        private static Configs configs = new Configs();
+        private static readonly Configs configs = new Configs();
 
         public MainFrame()
         {
@@ -20,9 +18,9 @@ namespace EMP.main.emp.view
 
             TestButton.Click += jumpButton; //REMOVE
             setMediaPlayers();
-            
+
             Closed += processTerminated;
-            
+
             setUpSettings();
         }
 
@@ -32,7 +30,7 @@ namespace EMP.main.emp.view
 
         private void setUpSettings()
         {
-            string volume = configs.getVolume();
+            var volume = configs.getVolume();
             if (string.IsNullOrEmpty(volume))
             {
                 SliderVolume.Value = 50;

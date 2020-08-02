@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using EMP.main.service;
 
 namespace EMP.main.emp.view.panels
@@ -11,15 +9,17 @@ namespace EMP.main.emp.view.panels
         private EladariaPlayer mediaPlayer;
         private bool playing;
         private TimeSpan songProgress;
+
         public PlayMenu()
         {
             InitializeComponent();
-            
+
             btn_Play.Click += playMusic;
         }
-        
+
         private void playMusic(object sender, EventArgs e)
-        { //TODO: Change Image_Play icon when music is playing
+        {
+            //TODO: Change Image_Play icon when music is playing
             if (mediaPlayer.getPlaying())
             {
                 songProgress = mediaPlayer.Position;
@@ -32,9 +32,8 @@ namespace EMP.main.emp.view.panels
                 mediaPlayer.Play(); //TODO: Continuous play/Playqueue
                 mediaPlayer.setPlaying(true);
             }
-                
         }
-        
+
         private void skipSong(object sender, EventArgs e)
         {
             songProgress = TimeSpan.Zero;
@@ -52,7 +51,7 @@ namespace EMP.main.emp.view.panels
         {
             this.mediaPlayer = mediaPlayer;
         }
-        
+
         public void setPlaying(bool playing)
         {
             this.playing = playing;

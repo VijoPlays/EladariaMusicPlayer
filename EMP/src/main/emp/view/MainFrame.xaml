@@ -44,16 +44,14 @@
         </Grid.RowDefinitions>
 
         <StackPanel
-            Grid.Row="0" 
+            Grid.Row="0"
             Grid.RowSpan="2"
-            Orientation="Horizontal"
-            >
+            Orientation="Horizontal">
             <!--TODO: Evtl add Grid Layout in here as well to reduce squishing -->
-            <empres:SliderVolumeEMP 
-                x:Name="SliderVolume"
-            />
-            <panels:PlayMenu 
-                x:Name="PlayMenu"/>
+            <empres:SliderVolumeEMP
+                x:Name="SliderVolume" />
+            <panels:PlayMenu
+                x:Name="PlayMenu" />
 
         </StackPanel>
 
@@ -82,7 +80,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Grid.Row="0" x:Name="TestBox" />
-                <panels:SongList Grid.Row="1" Grid.RowSpan="4" x:Name="SongList"/>
+                <panels:SongList Grid.Row="1" Grid.RowSpan="4" x:Name="SongList" />
             </Grid>
         </Grid>
         <!--TODO: Add some Layout... + Remove Placeholders-->

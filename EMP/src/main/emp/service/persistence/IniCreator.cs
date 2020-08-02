@@ -5,25 +5,26 @@ using System.Text;
 
 namespace EMP.main.emp.service.persistence
 {
-    class IniCreator
+    internal class IniCreator
     {
-        private string Path;
-        private string EXE = Assembly.GetExecutingAssembly().GetName().Name;
-
-        [DllImport("kernel32", CharSet = CharSet.Unicode)]
-        static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
-
-        [DllImport("kernel32", CharSet = CharSet.Unicode)]
-        static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+        private readonly string EXE = Assembly.GetExecutingAssembly().GetName().Name;
+        private readonly string Path;
 
         public IniCreator(string IniPath = null)
         {
             Path = new FileInfo(IniPath ?? EXE + ".ini").FullName;
         }
 
+        [DllImport("kernel32", CharSet = CharSet.Unicode)]
+        private static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+
+        [DllImport("kernel32", CharSet = CharSet.Unicode)]
+        private static extern int GetPrivateProfileString(string Section, string Key, string Default,
+            StringBuilder RetVal, int Size, string FilePath);
+
         public string Read(string Key, string Section = null)
         {
-            StringBuilder RetVal = new StringBuilder(255);
+            var RetVal = new StringBuilder(255);
             GetPrivateProfileString(Section ?? EXE, Key, "", RetVal, 255, Path);
             return RetVal.ToString();
         }

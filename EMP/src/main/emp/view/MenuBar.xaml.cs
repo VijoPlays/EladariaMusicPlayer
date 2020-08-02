@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -25,6 +24,6 @@ namespace EMP.main.emp.view
             this.mediaPlayer = mediaPlayer;
         }
 
-        //TODO: Add additional Actionlisteners for the other MenuItems
+        //TODO: Add additional Actionlisteners for the other MenuItems (e.g. set Folders)
     }
 }
