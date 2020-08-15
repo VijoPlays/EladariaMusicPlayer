@@ -28,6 +28,11 @@ namespace EMP.main.emp.view.panels
             this.mediaPlayer = mediaPlayer;
         }
 
+        public void setSongDictionary()
+        {
+            mediaPlayer.setSongDictionary(songDictionary);
+        }
+
         private void fillSongs()
         {
             //TODO: Add compatibility with other sound file types
@@ -101,8 +106,7 @@ namespace EMP.main.emp.view.panels
             string path = songDictionary[index];
             Uri uri = new Uri(path);
             mediaPlayer.Open(uri);
-            mediaPlayer.loopPlay(durationInSeconds(song.Duration));
-            mediaPlayer.setPlaying(true);
+            mediaPlayer.loopPlay();
         }
 
         private void rightClick(object sender, MouseButtonEventArgs mouseButtonEventArgs)

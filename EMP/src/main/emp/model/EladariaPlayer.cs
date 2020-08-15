@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Timers;
 using System.Windows.Media;
 
@@ -6,14 +7,23 @@ namespace EMP.main.emp.model
 {
     public class EladariaPlayer : MediaPlayer
     {
-        private bool playing;
+        private bool playing, shuffle, repeat;
 
-        private Timer timer = new Timer();
+        private List<string> songDictionary;
 
         public EladariaPlayer()
         {
-            timer.Elapsed += timeExpired;
-            timer.AutoReset = false;
+            MediaEnded += mediaFinished;
+        }
+
+        public void setShuffle(bool shuffle)
+        {
+            this.shuffle = shuffle;
+        }
+
+        public void setRepeat(bool repeat)
+        {
+            this.repeat = repeat;
         }
 
         public bool getPlaying()
@@ -26,25 +36,36 @@ namespace EMP.main.emp.model
             playing = currentlyPlaying;
         }
 
-        public Timer getTimer()
+        public void setSongDictionary(List<string> songDictionary)
         {
-            return timer;
+            this.songDictionary = songDictionary;
         }
 
-        public void loopPlay(int duration)
+        public void loopPlay()
         {
             Play();
             playing = true;
-            timer.Interval = duration * 1000;
-            timer.Start();
         }
 
-        public void timeExpired(Object sender, ElapsedEventArgs elapsedEventArgs)
+        private void mediaFinished(object sender, EventArgs eventArgs)
         {
-            //TODO: Can't interact with mediaplayer during this time for whatever reason
-                //TODO: Instead, try adding a clock and use CurrentProgress methods etc?
-            //If shuffle, get new song, then play that one, set new timer, call loopplay etc
-            // Change all to loopplay
+            if (shuffle)
+            {
+                //Random random = new Random(number of songs to grab);
+                //TODO: Make randomizer
+                // Uri uri = new Uri(remaining songs[random]);
+                // Open(uri);
+                Play();
+            }
+            else if (repeat)
+            {
+                Position = new TimeSpan(0,0,0);
+                Play();
+            }
+            else
+            {
+                playing = false;
+            }
         }
     }
 }

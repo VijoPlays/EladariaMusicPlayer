@@ -30,7 +30,7 @@ namespace EMP.main.emp.view.panels
             else
             {
                 mediaPlayer.Position = songProgress;
-                mediaPlayer.Play(); //TODO: Continuous play/Playqueue
+                mediaPlayer.loopPlay();
                 mediaPlayer.setPlaying(true);
             }
         }

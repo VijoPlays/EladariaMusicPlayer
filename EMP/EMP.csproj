@@ -53,7 +53,6 @@
         <Compile Include="Properties\Annotations.cs" />
         <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
         <Compile Include="src\main\emp\model\EladariaPlayer.cs" />
-        <Compile Include="src\main\emp\model\EladariaTimer.cs" />
         <Compile Include="src\main\emp\service\persistence\Configs.cs" />
         <Compile Include="src\main\emp\service\persistence\IniCreator.cs" />
         <Compile Include="src\main\emp\view\empres\SliderVolumeVolumeEMP.xaml.cs">
@@ -75,7 +74,6 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </Page>
-        <Compile Include="src\main\emp\controller\MediaController.cs" />
         <Compile Include="App.xaml.cs">
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
