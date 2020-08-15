@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,7 +14,7 @@ namespace EMP.main.emp.view.panels
     {
         private static readonly Configs configs = new Configs();
         private EladariaPlayer mediaPlayer;
-        private readonly Dictionary<int, string> songDictionary = new Dictionary<int, string>();
+        private readonly List<string> songDictionary = new List<string>();
 
         public SongList()
         {
@@ -43,7 +44,7 @@ namespace EMP.main.emp.view.panels
                     song = new Song();
                     var tagFile = File.Create(file.FullName);
                     var duration = tagFile.Properties.Duration;
-
+                    
                     song.Count = i;
                     song.Title = tagFile.Tag.Title;
                     song.Duration = calcTime(duration.Seconds, duration.Minutes);
@@ -54,12 +55,15 @@ namespace EMP.main.emp.view.panels
 
                     //TODO: Save Header positions + size and preferred sorting
                     GridSongs.Items.Add(song);
+                    songDictionary.Add(pathlist[j] + Path.DirectorySeparatorChar + song.Title + ".mp3");
+                    //TODO: Fix Index by saving it in a temporary list
                     i++;
                 }
 
                 j++;
             }
-        }
+            //If I can sort Gridsongs, use this one as well: songDictionary.Sort();
+        } //TODO: Filter example: https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/datagrid_guidance/group_sort_filter
 
         private string calcTime(int seconds, int minutes)
         {
@@ -78,14 +82,24 @@ namespace EMP.main.emp.view.panels
             return time;
         }
 
+        private int durationInSeconds(String duration)
+        {
+            int durationInSeconds;
+
+            String[] durationSplit = duration.Split(Convert.ToChar(":"));
+
+            durationInSeconds = int.Parse(durationSplit[0]) * 60 + int.Parse(durationSplit[1]);
+
+            return durationInSeconds;
+        }
+
         private void playSong(object sender, MouseButtonEventArgs mouseButtonEventArgs)
         {
-            var row = (Song) GridSongs.SelectedItems[0];
-            var index = row.Count;
-            string path;
-            songDictionary.TryGetValue(index, out path);
+            var song = (Song) GridSongs.SelectedItems[0];
+            var index = song.Count - 1;
+            string path = songDictionary[index];
             mediaPlayer.Open(new Uri(path));
-            mediaPlayer.Play();
+            mediaPlayer.loopPlay(durationInSeconds(song.Duration));
             mediaPlayer.setPlaying(true);
         }
 

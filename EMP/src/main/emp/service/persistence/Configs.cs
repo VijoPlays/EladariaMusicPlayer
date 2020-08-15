@@ -8,8 +8,7 @@ namespace EMP.main.emp.service.persistence
     {
         private IniCreator configsFile;
 
-        private string eladariaFolder =
-            Path.DirectorySeparatorChar + "Eladaria Studios" + Path.DirectorySeparatorChar + "EMP";
+        private string eladariaFolder = Path.DirectorySeparatorChar + "Eladaria Studios" + Path.DirectorySeparatorChar + "EMP";
 
         private readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
