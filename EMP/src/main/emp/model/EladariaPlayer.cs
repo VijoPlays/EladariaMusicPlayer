@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Timers;
-using System.Windows;
 using System.Windows.Media;
-using Microsoft.Win32;
 
-namespace EMP.main.service
+namespace EMP.main.emp.model
 {
     public class EladariaPlayer : MediaPlayer
     {
@@ -33,24 +31,18 @@ namespace EMP.main.service
             return timer;
         }
 
-
         public void loopPlay(int duration)
         {
             Play();
             playing = true;
             timer.Interval = duration * 1000;
             timer.Start();
-            //TODO: Adjust timer, then play again if timer over
         }
 
         public void timeExpired(Object sender, ElapsedEventArgs elapsedEventArgs)
         {
-            String path = "G:/Jailhouserock/Great Gubal Library - FFXIV.mp3";
-            Uri uri = new Uri(path);
-            Open(uri);
-            this.Play();
-            timer.Interval = 1000000000000000000;
-            timer.Elapsed -= timeExpired;
+            //TODO: Can't interact with mediaplayer during this time for whatever reason
+                //TODO: Instead, try adding a clock and use CurrentProgress methods etc?
             //If shuffle, get new song, then play that one, set new timer, call loopplay etc
             // Change all to loopplay
         }

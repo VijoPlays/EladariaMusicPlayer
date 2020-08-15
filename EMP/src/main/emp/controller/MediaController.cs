@@ -1,4 +1,5 @@
-﻿using EMP.main.service;
+﻿using EMP.main.emp.model;
+using EMP.main.emp.service;
 
 namespace EMP.main
 {

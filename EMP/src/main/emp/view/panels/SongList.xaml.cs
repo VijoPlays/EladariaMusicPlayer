@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Input;
+using EMP.main.emp.model;
+using EMP.main.emp.service;
 using EMP.main.emp.service.persistence;
-using EMP.main.service;
 using File = TagLib.File;
 
 namespace EMP.main.emp.view.panels
@@ -98,7 +99,8 @@ namespace EMP.main.emp.view.panels
             var song = (Song) GridSongs.SelectedItems[0];
             var index = song.Count - 1;
             string path = songDictionary[index];
-            mediaPlayer.Open(new Uri(path));
+            Uri uri = new Uri(path);
+            mediaPlayer.Open(uri);
             mediaPlayer.loopPlay(durationInSeconds(song.Duration));
             mediaPlayer.setPlaying(true);
         }

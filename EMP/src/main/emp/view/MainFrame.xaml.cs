@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows;
+using EMP.main.emp.model;
+using EMP.main.emp.service;
 using EMP.main.emp.service.persistence;
-using EMP.main.service;
 
 namespace EMP.main.emp.view
 {
