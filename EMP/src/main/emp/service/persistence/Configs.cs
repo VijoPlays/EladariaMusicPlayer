@@ -34,7 +34,6 @@ namespace EMP.main.emp.service.persistence
             configsFile.Write("Volume", volume, "Settings");
         }
 
-        //TODO: Enable setting the paths somewhere
         public List<string> getPaths()
         {
             var paths = new List<string>();
@@ -47,9 +46,7 @@ namespace EMP.main.emp.service.persistence
 
             return paths;
         }
-
-        //TODO: Test the 2 methods below this one
-
+        
         public void setPaths(string path)
         {
             var i = 1;
@@ -60,7 +57,7 @@ namespace EMP.main.emp.service.persistence
             configsFile.Write(pathcount, path, "Paths");
         }
 
-        public void clearPath(string pathToKill)
+        public void clearPath(string pathToKill)         //TODO: Test this one
         {
             var allPaths = new List<string>();
             var i = 1;

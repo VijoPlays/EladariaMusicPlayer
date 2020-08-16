@@ -55,6 +55,7 @@ namespace EMP.main.emp.view
             SongList.setMediaPlayer(mediaPlayer);
             SliderVolume.setMediaPlayer(mediaPlayer);
             PlayMenu.setMediaPlayer(mediaPlayer);
+            menuBar.setMediaPlayer(mediaPlayer);
         }
     }
 }

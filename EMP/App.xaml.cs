@@ -10,6 +10,6 @@ namespace EMP
             var app = new App();
             app.InitializeComponent();
             app.Run();
-        }
+        } //TODO: Go through all variables and check if they should be saved in the configs file
     }
 }

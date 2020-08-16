@@ -26,6 +26,7 @@ namespace EMP.main.emp.view.panels
         public void setMediaPlayer(EladariaPlayer mediaPlayer)
         {
             this.mediaPlayer = mediaPlayer;
+            mediaPlayer.setConfigs(configs);
         }
 
         public void setSongDictionary()

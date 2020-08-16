@@ -28,3 +28,12 @@ G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\empres\SliderVolumeEM
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\empres\SliderVolumeEMP.baml
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\panels\playmenu\PlayMenu.baml
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\panels\playmenu\PlayMenu.g.cs
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.dll
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.xml
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml

@@ -2,21 +2,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Media;
+using EMP.main.emp.service.persistence;
 
 namespace EMP.main.emp.model
 {
     public class EladariaPlayer : MediaPlayer
     {
         private bool playing, shuffle = true, repeat, tooFewSongs;
-
         private List<string> remainingSongs;
         private int missingSongsSize = 10; //Change Size of queue to change how many songs are removed from remainingSongs
         private Queue missingSongs;
+        private Configs configs;
 
         public EladariaPlayer()
         {
             MediaEnded += mediaFinished;
             missingSongs = new Queue(missingSongsSize);
+        }
+
+        public void setConfigs(Configs configs)
+        {
+            this.configs = configs;
         }
 
         public void reverseShuffle()
@@ -56,6 +62,11 @@ namespace EMP.main.emp.model
             {
                 tooFewSongs = true;
             }
+        }
+
+        public Configs getConfigs()
+        {
+            return configs;
         }
 
         public void loopPlay()
