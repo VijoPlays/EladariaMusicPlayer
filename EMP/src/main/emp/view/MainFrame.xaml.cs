@@ -30,6 +30,11 @@ namespace EMP.main.emp.view
         {
         }
 
+        public static Configs getConfigs()
+        {
+            return configs;
+        }
+
         private void setUpSettings()
         {
             var volume = configs.getVolume();
@@ -48,6 +53,7 @@ namespace EMP.main.emp.view
         private void processTerminated(object sender, EventArgs eventArgs)
         {
             configs.setVolume(SliderVolume.Value.ToString());
+            //TODO: Save all the configs things in here
         }
 
         private void setMediaPlayers()

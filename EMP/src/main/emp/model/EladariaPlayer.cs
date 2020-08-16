@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Media;
 using EMP.main.emp.service.persistence;
+using EMP.main.emp.view;
 
 namespace EMP.main.emp.model
 {
@@ -12,7 +13,7 @@ namespace EMP.main.emp.model
         private List<string> remainingSongs;
         private int missingSongsSize = 10; //Change Size of queue to change how many songs are removed from remainingSongs
         private Queue missingSongs;
-        private Configs configs;
+        private Configs configs = MainFrame.getConfigs(); //Maybe remove?
 
         public EladariaPlayer()
         {

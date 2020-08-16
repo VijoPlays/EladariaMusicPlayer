@@ -13,7 +13,6 @@ namespace EMP.main.emp.view.panels
 {
     public partial class SongList : DataGrid
     {
-        private static readonly Configs configs = new Configs();
         private EladariaPlayer mediaPlayer;
         private readonly List<string> songDictionary = new List<string>();
 
@@ -26,7 +25,6 @@ namespace EMP.main.emp.view.panels
         public void setMediaPlayer(EladariaPlayer mediaPlayer)
         {
             this.mediaPlayer = mediaPlayer;
-            mediaPlayer.setConfigs(configs);
         }
 
         public void setSongDictionary()
@@ -40,7 +38,7 @@ namespace EMP.main.emp.view.panels
             int i = 1, j = 0;
             Song song;
 
-            var pathlist = configs.getPaths();
+            var pathlist = MainFrame.getConfigs().getPaths();
 
             while (j < pathlist.Count)
             {

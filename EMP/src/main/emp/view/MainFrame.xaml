@@ -6,6 +6,7 @@
         xmlns:view="clr-namespace:EMP.main.emp.view"
         xmlns:panels="clr-namespace:EMP.main.emp.view.panels"
         xmlns:empres="clr-namespace:EMP.main.emp.view.empres"
+        xmlns:playmenu="clr-namespace:EMP.main.emp.view.panels.playmenu"
         mc:Ignorable="d"
         Title="MainFrame"
         Height="Auto"
@@ -50,7 +51,7 @@
             <!--TODO: Evtl add Grid Layout in here as well to reduce squishing -->
             <empres:SliderVolumeEMP
                 x:Name="SliderVolume" />
-            <panels:PlayMenu
+            <playmenu:PlayMenu
                 x:Name="PlayMenu" />
 
         </StackPanel>

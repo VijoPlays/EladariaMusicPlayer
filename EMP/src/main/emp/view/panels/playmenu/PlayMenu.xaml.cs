@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Controls;
 using EMP.main.emp.model;
-using EMP.main.emp.service;
 
-namespace EMP.main.emp.view.panels
+namespace EMP.main.emp.view.panels.playmenu
 {
     public partial class PlayMenu : Grid
     {
