@@ -1,29 +1,37 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Timers;
 using System.Windows.Media;
 
 namespace EMP.main.emp.model
 {
     public class EladariaPlayer : MediaPlayer
     {
-        private bool playing, shuffle, repeat;
+        private bool playing, shuffle = true, repeat, tooFewSongs;
 
-        private List<string> songDictionary;
+        private List<string> remainingSongs;
+        private int missingSongsSize = 10; //Change Size of queue to change how many songs are removed from remainingSongs
+        private Queue missingSongs;
 
         public EladariaPlayer()
         {
             MediaEnded += mediaFinished;
+            missingSongs = new Queue(missingSongsSize);
         }
 
-        public void setShuffle(bool shuffle)
+        public void reverseShuffle()
         {
-            this.shuffle = shuffle;
+            shuffle = !shuffle;
         }
 
-        public void setRepeat(bool repeat)
+        public void reverseRepeat()
         {
-            this.repeat = repeat;
+            repeat = !repeat;
+        }
+
+        public void setPlaying(bool playing)
+        {
+            this.playing = playing;
         }
 
         public bool getPlaying()
@@ -31,14 +39,23 @@ namespace EMP.main.emp.model
             return playing;
         }
 
-        public void setPlaying(bool currentlyPlaying)
+        public void setMissingSongsSize(int size) //TODO: Create UI
         {
-            playing = currentlyPlaying;
+            missingSongsSize = size;
+            if (remainingSongs.Count + missingSongs.Count - missingSongsSize < 0)
+            {
+                tooFewSongs = true;
+            }
+            missingSongs = new Queue(size);
         }
 
         public void setSongDictionary(List<string> songDictionary)
         {
-            this.songDictionary = songDictionary;
+            remainingSongs = songDictionary;
+            if (songDictionary.Count - missingSongsSize < 0)
+            {
+                tooFewSongs = true;
+            }
         }
 
         public void loopPlay()
@@ -46,16 +63,37 @@ namespace EMP.main.emp.model
             Play();
             playing = true;
         }
+        
+        public void loopPlay(String path)
+        {
+            Play();
+            playing = true;
+            if (tooFewSongs) return;
+            remainingSongs.Remove(path);
+            missingSongs.Enqueue(path);
+        }
 
         private void mediaFinished(object sender, EventArgs eventArgs)
         {
             if (shuffle)
             {
-                //Random random = new Random(number of songs to grab);
-                //TODO: Make randomizer
-                // Uri uri = new Uri(remaining songs[random]);
-                // Open(uri);
+                Random random = new Random();
+                
+                int randSong = random.Next(1, remainingSongs.Count);
+                string path = remainingSongs[randSong - 1];
+                Uri uri = new Uri(path);
+                Open(uri);
                 Play();
+
+                if (tooFewSongs) return;
+                
+                if (missingSongs.Count == missingSongsSize)
+                {
+                    remainingSongs.Add(missingSongs.Dequeue().ToString());
+                }
+                
+                remainingSongs.Remove(path);
+                missingSongs.Enqueue(path);
             }
             else if (repeat)
             {

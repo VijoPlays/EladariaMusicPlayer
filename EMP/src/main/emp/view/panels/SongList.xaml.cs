@@ -106,7 +106,7 @@ namespace EMP.main.emp.view.panels
             string path = songDictionary[index];
             Uri uri = new Uri(path);
             mediaPlayer.Open(uri);
-            mediaPlayer.loopPlay();
+            mediaPlayer.loopPlay(path);
         }
 
         private void rightClick(object sender, MouseButtonEventArgs mouseButtonEventArgs)

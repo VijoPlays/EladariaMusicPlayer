@@ -8,7 +8,6 @@ namespace EMP.main.emp.view.panels
     public partial class PlayMenu : Grid
     {
         private EladariaPlayer mediaPlayer;
-        private bool playing;
         private TimeSpan songProgress;
 
         public PlayMenu()
@@ -31,9 +30,11 @@ namespace EMP.main.emp.view.panels
             {
                 mediaPlayer.Position = songProgress;
                 mediaPlayer.loopPlay();
-                mediaPlayer.setPlaying(true);
             }
         }
+        
+        //TODO: Shuffle is true on default
+        
 
         private void skipSong(object sender, EventArgs e)
         {
@@ -51,11 +52,6 @@ namespace EMP.main.emp.view.panels
         public void setMediaPlayer(EladariaPlayer mediaPlayer)
         {
             this.mediaPlayer = mediaPlayer;
-        }
-
-        public void setPlaying(bool playing)
-        {
-            this.playing = playing;
         }
     }
 }

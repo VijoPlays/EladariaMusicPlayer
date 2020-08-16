@@ -23,6 +23,7 @@ namespace EMP.main.emp.view
             Closed += processTerminated;
 
             setUpSettings();
+            SongList.setSongDictionary();
         }
 
         public void jumpButton(object sender, EventArgs e) //REMOVE
