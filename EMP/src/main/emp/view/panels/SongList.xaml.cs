@@ -15,7 +15,6 @@ namespace EMP.main.emp.view.panels
     {
         private EladariaPlayer mediaPlayer;
         private readonly List<string> songDictionary = new List<string>();
-        private readonly List<string> rngSongs = new List<string>();
 
         public SongList()
         {

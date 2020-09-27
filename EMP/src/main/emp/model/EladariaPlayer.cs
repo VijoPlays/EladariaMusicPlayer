@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Media;
 using EMP.main.emp.service.persistence;
 using EMP.main.emp.view;
@@ -58,7 +59,7 @@ namespace EMP.main.emp.model
 
         public void setSongDictionary(List<string> songDictionary)
         {
-            remainingSongs = songDictionary;
+            remainingSongs = songDictionary.ToList();
             if (songDictionary.Count - missingSongsSize < 0)
             {
                 tooFewSongs = true;
@@ -85,6 +86,7 @@ namespace EMP.main.emp.model
             missingSongs.Enqueue(path);
         }
 
+        //This method is used to loop automatically after a song has finished playing.
         private void mediaFinished(object sender, EventArgs eventArgs)
         {
             if (shuffle)
