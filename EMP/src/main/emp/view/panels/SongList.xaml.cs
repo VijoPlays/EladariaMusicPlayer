@@ -15,6 +15,7 @@ namespace EMP.main.emp.view.panels
     {
         private EladariaPlayer mediaPlayer;
         private readonly List<string> songDictionary = new List<string>();
+        private readonly List<string> rngSongs = new List<string>();
 
         public SongList()
         {
@@ -31,7 +32,7 @@ namespace EMP.main.emp.view.panels
         {
             mediaPlayer.setSongDictionary(songDictionary);
         }
-
+        //TODO: Create 2 lists, one for RNG, one for clicking
         private void fillSongs()
         {
             //TODO: Add compatibility with other sound file types
@@ -113,7 +114,7 @@ namespace EMP.main.emp.view.panels
             //TODO: Add functionality      
         }
 
-        public class Song
+        private class Song
         {
             public string Title { get; set; }
             public int Count { get; set; }

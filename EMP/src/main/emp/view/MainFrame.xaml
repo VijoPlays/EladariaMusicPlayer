@@ -14,10 +14,12 @@
         SizeToContent="WidthAndHeight"
         Background="Gray"
         WindowState="Normal"
-        Topmost="False">
+        Topmost="False"
+        Icon="../../res/title/EMP_Placeholder_small.png">
+    <!--ICON: Go to Icon -> Properties -> Set as Ressource, otherwise WPF will crash -->
+    
     <!--TODO: Change Title Bar... Borderless I guess?-->
-
-    <!--TODO: Change Icon to EMP Icon="../../res/Vijosmol.jpg" - It may require .ico? If not, size-->
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />

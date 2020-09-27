@@ -120,6 +120,9 @@
       <Content Include="src\main\res\durationsliderr" />
       <Content Include="src\main\res\Placeholder_Play.png" />
       <Content Include="src\main\res\plans.txt" />
+      <Resource Include="src\main\res\title\EMP_Placeholder_small.png" />
+      <Resource Include="src\main\res\title\EMP_Placeholder.png" />
+      <Content Include="src\main\res\title\EMP_Placeholder.xcf" />
       <Resource Include="src\main\res\Vijosmol.jpg" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

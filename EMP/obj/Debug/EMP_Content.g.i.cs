@@ -13,5 +13,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/main/res/durationsliderr")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/main/res/placeholder_play.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/main/res/plans.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/main/res/title/emp_placeholder.xcf")]
 
 
