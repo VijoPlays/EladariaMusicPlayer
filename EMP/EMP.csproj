@@ -67,6 +67,9 @@
         <Compile Include="src\main\emp\model\EladariaPlayer.cs" />
         <Compile Include="src\main\emp\service\persistence\Configs.cs" />
         <Compile Include="src\main\emp\service\persistence\IniCreator.cs" />
+        <Compile Include="src\main\emp\view\context\SongListContext.xaml.cs">
+          <DependentUpon>SongListContext.xaml</DependentUpon>
+        </Compile>
         <Compile Include="src\main\emp\view\empres\SliderVolumeVolumeEMP.xaml.cs">
           <DependentUpon>SliderVolumeEMP.xaml</DependentUpon>
         </Compile>
@@ -90,6 +93,7 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="src\main\emp\view\context\SongListContext.xaml" />
         <Page Include="src\main\emp\view\empres\SliderVolumeEMP.xaml" />
         <Page Include="src\main\emp\view\MainFrame.xaml" />
         <Page Include="src\main\emp\view\MenuBar.xaml" />

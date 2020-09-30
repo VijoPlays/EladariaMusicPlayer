@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using EMP.main.emp.model;
-using EMP.main.emp.service;
-using EMP.main.emp.service.persistence;
+using EMP.main.emp.view.context;
 using File = TagLib.File;
 
 namespace EMP.main.emp.view.panels
@@ -15,11 +15,13 @@ namespace EMP.main.emp.view.panels
     {
         private EladariaPlayer mediaPlayer;
         private readonly List<string> songDictionary = new List<string>();
-
+        private SongListContext songListContext = new SongListContext();
+        
         public SongList()
         {
             InitializeComponent();
             fillSongs();
+            ContextMenu = songListContext;
         }
 
         public void setMediaPlayer(EladariaPlayer mediaPlayer)
@@ -31,7 +33,7 @@ namespace EMP.main.emp.view.panels
         {
             mediaPlayer.setSongDictionary(songDictionary);
         }
-        //TODO: Create 2 lists, one for RNG, one for clicking
+
         private void fillSongs()
         {
             //TODO: Add compatibility with other sound file types
@@ -108,9 +110,30 @@ namespace EMP.main.emp.view.panels
             mediaPlayer.loopPlay(path);
         }
 
-        private void rightClick(object sender, MouseButtonEventArgs mouseButtonEventArgs)
-        {
-            //TODO: Add functionality      
+        private void rightClick(object sender, MouseButtonEventArgs e)
+        { //TODO: Select (Left click) before right clicking
+            DependencyObject dep = (DependencyObject)e.OriginalSource;
+            while (dep != null && !(dep is DataGridCell))
+            {
+                dep = VisualTreeHelper.GetParent(dep);
+            }
+            if (dep == null) return;
+
+            DataGridCell cell = dep as DataGridCell;
+            cell.Focus();
+            while (dep != null && !(dep is DataGridRow))
+            {
+                dep = VisualTreeHelper.GetParent(dep);
+            }
+
+            DataGridRow row = dep as DataGridRow;
+            GridSongs.SelectedItem = row.DataContext;
+
+            var song = (Song) GridSongs.SelectedItems[0];
+            var index = song.Count - 1;
+            string path = songDictionary[index];
+
+            songListContext.setPath(path);
         }
 
         private class Song
