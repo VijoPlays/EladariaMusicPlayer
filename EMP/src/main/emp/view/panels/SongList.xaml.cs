@@ -111,7 +111,7 @@ namespace EMP.main.emp.view.panels
         }
 
         private void rightClick(object sender, MouseButtonEventArgs e)
-        { //TODO: Select (Left click) before right clicking
+        {
             DependencyObject dep = (DependencyObject)e.OriginalSource;
             while (dep != null && !(dep is DataGridCell))
             {

@@ -4,6 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
+    <MenuItem Header="Play Next"
+              Click="PlayNext_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+    <MenuItem Header="Add to Play Queue"
+              Click="QueueNext_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+    <MenuItem Header="Exclude"
+              Click="Exclude_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
     <MenuItem Header="Copy Name"
               Click="CopyName_OnClick"
               CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />

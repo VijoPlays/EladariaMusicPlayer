@@ -11,15 +11,14 @@ namespace EMP.main.emp.model
     public class EladariaPlayer : MediaPlayer
     {
         private bool playing, shuffle = true, repeat, tooFewSongs;
-        private List<string> remainingSongs;
-        private int missingSongsSize = 10; //Change Size of queue to change how many songs are removed from remainingSongs
-        private Queue missingSongs;
+        private static List<string> remainingSongs;
+        private static int missingSongsSize = 10; //Change Size of queue to change how many songs are removed from remainingSongs
+        private static Queue missingSongs = new Queue(missingSongsSize);
         private Configs configs = MainFrame.getConfigs(); //Maybe remove?
 
         public EladariaPlayer()
         {
             MediaEnded += mediaFinished;
-            missingSongs = new Queue(missingSongsSize);
         }
 
         public void setConfigs(Configs configs)
@@ -45,6 +44,11 @@ namespace EMP.main.emp.model
         public bool getPlaying()
         {
             return playing;
+        }
+
+        public static void excludeSong(string path)
+        {
+            remainingSongs.Remove(path);
         }
 
         public void setMissingSongsSize(int size) //TODO: Create UI
@@ -82,8 +86,8 @@ namespace EMP.main.emp.model
             Play();
             playing = true;
             if (tooFewSongs) return;
-            remainingSongs.Remove(path);
             missingSongs.Enqueue(path);
+            excludeSong(path);
         }
 
         //This method is used to loop automatically after a song has finished playing.
@@ -106,8 +110,8 @@ namespace EMP.main.emp.model
                     remainingSongs.Add(missingSongs.Dequeue().ToString());
                 }
                 
-                remainingSongs.Remove(path);
                 missingSongs.Enqueue(path);
+                excludeSong(path);
             }
             else if (repeat)
             {
