@@ -10,7 +10,7 @@ namespace EMP.main.emp.model
 {
     public class EladariaPlayer : MediaPlayer
     {
-        private bool playing, shuffle = true, repeat, tooFewSongs;
+        private bool playing, shuffle = true, repeat, tooFewSongs, playNext;
         private static List<string> remainingSongs;
         private static int missingSongsSize = 10; //Change Size of queue to change how many songs are removed from remainingSongs
         private static Queue missingSongs = new Queue(missingSongsSize);
@@ -93,7 +93,10 @@ namespace EMP.main.emp.model
         //This method is used to loop automatically after a song has finished playing.
         private void mediaFinished(object sender, EventArgs eventArgs)
         {
-            if (shuffle)
+            if (playNext)
+            {
+                //TODO; set playNext = true, then play that song
+            } else if (shuffle)
             {
                 Random random = new Random();
                 
