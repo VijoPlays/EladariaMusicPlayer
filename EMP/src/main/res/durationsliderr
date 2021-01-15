@@ -1,0 +1,58 @@
+﻿https://stackoverflow.com/questions/10208959/binding-mediaelement-to-slider-position-in-wpf
+
+Tried binding Maximum value of slider to media element's duration and binding slider's current value to the position of media element, but but for some reasons it doesn't.
+
+I want the slider to move it's thumb while the video is playing.
+
+<Slider x:Name="videoSlider" Value="{Binding ElementName=mp3MediaElement, Path=Position}" 
+ValueChanged="videoSlider_ValueChanged" IsMoveToPointEnabled="True" 
+Maximum="{Binding ElementName=mp3MediaElement, Path=NaturalDuration}" 
+AllowDrop="True" DataContext="{Binding ElementName=mp3MediaElement}" />
+
+
+
+I didn't use binding.. I had a similar issue and used timer for this (My code is in Silverlight by it suppose to be the same on WPF):
+
+First direction (movie updates the slider)
+
+private TimeSpan TotalTime;
+
+private void MyMediaElement_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            TotalTime = MyMediaElement.NaturalDuration.TimeSpan;
+
+            // Create a timer that will update the counters and the time slider
+            timerVideoTime = new DispatcherTimer();
+            timerVideoTime.Interval = TimeSpan.FromSeconds(1);
+            timerVideoTime.Tick += new EventHandler(timer_Tick);
+            timerVideoTime.Start();
+        }
+
+void timer_Tick(object sender, EventArgs e)
+        {
+            // Check if the movie finished calculate it's total time
+            if (MyMediaElement.NaturalDuration.TimeSpan.TotalSeconds > 0)
+            {
+                if (TotalTime.TotalSeconds > 0)
+                {
+                    // Updating time slider
+                    timeSlider.Value = MyMediaElement.Position.TotalSeconds /
+                                       TotalTime.TotalSeconds;
+                }
+            }
+        }
+Second direction (user updates the slider)
+on form ctor or something like this write the following line:
+
+timeSlider.AddHandler(MouseLeftButtonUpEvent, 
+                      new MouseButtonEventHandler(timeSlider_MouseLeftButtonUp), 
+                      true);
+and the event handler is:
+
+private void timeSlider_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (TotalTime.TotalSeconds > 0)
+            {
+                MyMediaElement.Position = TimeSpan.FromSeconds(timeSlider.Value * TotalTime.TotalSeconds);
+            }
+        }

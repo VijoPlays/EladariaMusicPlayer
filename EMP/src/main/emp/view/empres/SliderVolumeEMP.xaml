@@ -1,0 +1,23 @@
+﻿<Slider x:Class="EMP.main.emp.view.empres.SliderVolumeEMP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:controller="clr-namespace:EMP.main.emp.controller"
+        mc:Ignorable="d"
+        Style="{StaticResource EmpSlider}"
+
+        Thumb.DragStarted="ActionListenerSliderDragStarted"
+        Thumb.DragCompleted="ActionListenerSliderDragCompleted"
+
+        Value="50"
+        Minimum="0"
+        Maximum="100"
+        Margin="50,0,50,0"
+        VerticalAlignment="Center"
+        controller:MouseWheelBehavior.Value="4"
+        x:Name="SliderVolume">
+
+    <!--TODO: save window size (and where we left off between sessions?), Music Player, Search and Title Bar (Standard Ops) Keep Max Height in mind-->
+
+</Slider>

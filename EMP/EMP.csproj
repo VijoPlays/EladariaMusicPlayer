@@ -34,6 +34,18 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -50,24 +62,43 @@
         <Reference Include="PresentationFramework" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Properties\Annotations.cs" />
+        <Compile Include="src\main\emp\controller\MouseWheelBehaviour.cs" />
+        <Compile Include="src\main\emp\model\EladariaPlayer.cs" />
+        <Compile Include="src\main\emp\service\persistence\Configs.cs" />
+        <Compile Include="src\main\emp\service\persistence\IniCreator.cs" />
+        <Compile Include="src\main\emp\view\context\SongListContext.xaml.cs">
+          <DependentUpon>SongListContext.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="src\main\emp\view\empres\SliderVolumeVolumeEMP.xaml.cs">
+          <DependentUpon>SliderVolumeEMP.xaml</DependentUpon>
+        </Compile>
         <Compile Include="src\main\emp\view\MainFrame.xaml.cs">
           <DependentUpon>MainFrame.xaml</DependentUpon>
         </Compile>
         <Compile Include="src\main\emp\view\MenuBar.xaml.cs">
           <DependentUpon>MenuBar.xaml</DependentUpon>
         </Compile>
+        <Compile Include="src\main\emp\view\panels\playmenu\PlayMenu.xaml.cs">
+          <DependentUpon>PlayMenu.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="src\main\emp\view\panels\SongList.xaml.cs">
+          <DependentUpon>SongList.xaml</DependentUpon>
+        </Compile>
         <Page Include="App.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </Page>
-        <Compile Include="src\main\emp\controller\MediaController.cs" />
-        <Compile Include="src\main\emp\service\EladariaPlayer.cs" />
         <Compile Include="App.xaml.cs">
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="src\main\emp\view\context\SongListContext.xaml" />
+        <Page Include="src\main\emp\view\empres\SliderVolumeEMP.xaml" />
         <Page Include="src\main\emp\view\MainFrame.xaml" />
         <Page Include="src\main\emp\view\MenuBar.xaml" />
+        <Page Include="src\main\emp\view\panels\playmenu\PlayMenu.xaml" />
+        <Page Include="src\main\emp\view\panels\SongList.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs">
@@ -90,8 +121,14 @@
     <ItemGroup>
       <Content Include="prep\EMP_drawioMockUp.drawio" />
       <Content Include="prep\EMP_Mockup.png" />
+      <Content Include="src\main\emp\todo.txt" />
+      <Content Include="src\main\res\durationsliderr" />
+      <Content Include="src\main\res\Placeholder_Play.png" />
       <Content Include="src\main\res\plans.txt" />
-      <Content Include="src\main\res\Vijosmol.jpg" />
+      <Resource Include="src\main\res\title\EMP_Placeholder_small.png" />
+      <Resource Include="src\main\res\title\EMP_Placeholder.png" />
+      <Content Include="src\main\res\title\EMP_Placeholder.xcf" />
+      <Resource Include="src\main\res\Vijosmol.jpg" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

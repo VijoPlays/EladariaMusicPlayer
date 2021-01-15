@@ -1,0 +1,25 @@
+﻿<ContextMenu x:Class="EMP.main.emp.view.context.SongListContext"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+    <MenuItem Header="Play Next"
+              Click="PlayNext_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+    <MenuItem Header="Add to Play Queue"
+              Click="QueueNext_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+    <MenuItem Header="Exclude"
+              Click="Exclude_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+    <MenuItem Header="Copy Name"
+              Click="CopyName_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+    <MenuItem Header="Filter by..."
+              Click="Filter_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+    <MenuItem Header="Show in Explorer"
+              Click="ShowInExplorer_OnClick"
+              CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+</ContextMenu>

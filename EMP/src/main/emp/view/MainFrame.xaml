@@ -3,14 +3,90 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:EMP.main.emp.view"
+        xmlns:view="clr-namespace:EMP.main.emp.view"
+        xmlns:panels="clr-namespace:EMP.main.emp.view.panels"
+        xmlns:empres="clr-namespace:EMP.main.emp.view.empres"
+        xmlns:playmenu="clr-namespace:EMP.main.emp.view.panels.playmenu"
         mc:Ignorable="d"
-        Title="MainFrame" Height="450" Width="800"
+        Title="MainFrame"
+        Height="Auto"
+        Width="Auto"
         SizeToContent="WidthAndHeight"
         Background="Gray"
->
-    <!--TODO: Change Icon to EMP Icon="../../res/Vijosmol.jpg"-->
+        WindowState="Normal"
+        Topmost="False"
+        Icon="../../res/title/EMP_Placeholder_small.png">
+    <!--ICON: Go to Icon -> Properties -> Set as Ressource, otherwise WPF will crash -->
+    
+    <!--TODO: Change Title Bar... Borderless I guess?-->
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Orientation="Horizontal">
+            <!--TODO: Evtl add Grid Layout in here as well to reduce squishing -->
+            <empres:SliderVolumeEMP
+                x:Name="SliderVolume" />
+            <playmenu:PlayMenu
+                x:Name="PlayMenu" />
+
+        </StackPanel>
+
+        <Grid Row="2">
+            <view:MenuBar x:Name="menuBar" />
+        </Grid>
+
+        <Grid Row="3" Grid.RowSpan="19">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="TestButton" />
+            <Grid Grid.Column="1" Grid.ColumnSpan="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0" x:Name="TestBox" />
+                <panels:SongList Grid.Row="1" Grid.RowSpan="4" x:Name="SongList" />
+            </Grid>
+        </Grid>
+        <!--TODO: Add some Layout... + Remove Placeholders-->
+
     </Grid>
 </Window>
