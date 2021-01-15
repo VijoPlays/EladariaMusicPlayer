@@ -3,6 +3,7 @@ using System.Windows;
 using EMP.main.emp.model;
 using EMP.main.emp.service;
 using EMP.main.emp.service.persistence;
+using EMP.main.emp.view.context;
 
 namespace EMP.main.emp.view
 {
@@ -59,6 +60,7 @@ namespace EMP.main.emp.view
         private void setMediaPlayers()
         {
             SongList.setMediaPlayer(mediaPlayer);
+            SongList.setPlayMenu(PlayMenu);
             SliderVolume.setMediaPlayer(mediaPlayer);
             PlayMenu.setMediaPlayer(mediaPlayer);
             menuBar.setMediaPlayer(mediaPlayer);

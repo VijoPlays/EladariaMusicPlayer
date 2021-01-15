@@ -1,0 +1,6 @@
+﻿pie chart or % of genre
+make playlist based on searched parameters
+hover over icon -> show next/previous play/stop
+MB4/5 next/prev
+smart playlist
+play next

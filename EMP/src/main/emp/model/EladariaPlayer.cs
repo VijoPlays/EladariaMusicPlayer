@@ -20,7 +20,7 @@ namespace EMP.main.emp.model
         {
             MediaEnded += mediaFinished;
         }
-
+ 
         public void setConfigs(Configs configs)
         {
             this.configs = configs;
@@ -80,7 +80,7 @@ namespace EMP.main.emp.model
             Play();
             playing = true;
         }
-        
+
         public void loopPlay(String path)
         {
             Play();

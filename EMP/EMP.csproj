@@ -121,6 +121,7 @@
     <ItemGroup>
       <Content Include="prep\EMP_drawioMockUp.drawio" />
       <Content Include="prep\EMP_Mockup.png" />
+      <Content Include="src\main\emp\todo.txt" />
       <Content Include="src\main\res\durationsliderr" />
       <Content Include="src\main\res\Placeholder_Play.png" />
       <Content Include="src\main\res\plans.txt" />

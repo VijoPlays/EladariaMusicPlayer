@@ -31,6 +31,12 @@
         <Image Source="/src/main/res/Placeholder_Play.png"
                x:Name="image_Play" />
     </Button>
+    
+    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" x:Name="txt_Title"/>
+    
     <!-- TODO: Bei Fehlern mit Images: Right Click on Image -> Properties -> BuildAction='Resource' -->
+    
+    
+    
 
 </Grid>

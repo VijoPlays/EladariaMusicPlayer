@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using EMP.main.emp.model;
 using EMP.main.emp.view.context;
+using EMP.main.emp.view.panels.playmenu;
 using File = TagLib.File;
 
 namespace EMP.main.emp.view.panels
@@ -16,6 +17,7 @@ namespace EMP.main.emp.view.panels
         private EladariaPlayer mediaPlayer;
         private readonly List<string> songDictionary = new List<string>();
         private SongListContext songListContext = new SongListContext();
+        private PlayMenu playMenu;
         
         public SongList()
         {
@@ -27,6 +29,7 @@ namespace EMP.main.emp.view.panels
         public void setMediaPlayer(EladariaPlayer mediaPlayer)
         {
             this.mediaPlayer = mediaPlayer;
+            songListContext.setMediaPlayer(mediaPlayer);
         }
 
         public void setSongDictionary()
@@ -105,9 +108,23 @@ namespace EMP.main.emp.view.panels
             var song = (Song) GridSongs.SelectedItems[0];
             var index = song.Count - 1;
             string path = songDictionary[index];
+
+            playMenu.setTitle(getTitleFromPath(path));
+
             Uri uri = new Uri(path);
             mediaPlayer.Open(uri);
             mediaPlayer.loopPlay(path);
+        }
+
+        //This method grabs the title from any song/path and cuts out the file location, as well as the file extension.
+        public static string getTitleFromPath(string path)
+        {
+            string[] pathSplit = path.Split('\\');
+
+            string titleWithMP3 = pathSplit[pathSplit.Length - 1];
+            string[] titleWithoutMP3 = titleWithMP3.Split(new[] { ".mp3" }, StringSplitOptions.None);
+            
+            return titleWithoutMP3[0];
         }
 
         private void rightClick(object sender, MouseButtonEventArgs e)
@@ -144,6 +161,11 @@ namespace EMP.main.emp.view.panels
             public string Genre { get; set; }
             public string Album { get; set; }
             public string DateAdded { get; set; }
+        }
+        
+        public void setPlayMenu(PlayMenu playMenu)
+        {
+            this.playMenu = playMenu;
         }
     }
 }

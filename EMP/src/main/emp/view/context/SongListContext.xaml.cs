@@ -1,16 +1,17 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using EMP.main.emp.model;
 using EMP.main.emp.view.panels;
 
 namespace EMP.main.emp.view.context
 {
+    // This context class is called when right clicking on a song.
     public partial class SongListContext : ContextMenu
     {
 
         private string path;
+        private EladariaPlayer mediaPlayer;
         
         public SongListContext()
         {
@@ -24,7 +25,7 @@ namespace EMP.main.emp.view.context
         
         private void CopyName_OnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            
+            Clipboard.SetText(SongList.getTitleFromPath(path));
         }
         
         private void Filter_OnClick(object sender, RoutedEventArgs routedEventArgs)
@@ -39,7 +40,8 @@ namespace EMP.main.emp.view.context
         
         private void PlayNext_OnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            //TODO: Do this next
+            mediaPlayer.loopPlay(path);
+            //TODO: Currently bugged, maybe related to the fact that it's not being called from the MainFrame itself? 
         }
         
         // This method is used to queue a song up.
@@ -52,6 +54,11 @@ namespace EMP.main.emp.view.context
         private void Exclude_OnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             EladariaPlayer.excludeSong(path);
+        }
+
+        public void setMediaPlayer(EladariaPlayer mediaPlayer)
+        {
+            this.mediaPlayer = mediaPlayer;
         }
     }
 }

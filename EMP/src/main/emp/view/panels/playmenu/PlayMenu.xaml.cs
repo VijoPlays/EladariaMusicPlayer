@@ -16,6 +16,11 @@ namespace EMP.main.emp.view.panels.playmenu
             btn_Play.Click += playMusic;
         }
 
+        public void setTitle(String title)
+        {
+            txt_Title.Text = title;
+        }
+
         private void playMusic(object sender, EventArgs e)
         {
             //TODO: Change Image_Play icon when music is playing
