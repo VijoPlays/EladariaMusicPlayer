@@ -2,11 +2,13 @@
 using System.Windows;
 using System.Windows.Controls;
 using EMP.main.emp.model;
-using EMP.main.emp.view.panels;
+using EMP.main.emp.service.persistence;
 
 namespace EMP.main.emp.view.context
 {
-    // This context class is called when right clicking on a song.
+    /**
+     * This context class is called when right clicking on a song.
+     */
     public partial class SongListContext : ContextMenu
     {
 
@@ -25,7 +27,7 @@ namespace EMP.main.emp.view.context
         
         private void CopyName_OnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            Clipboard.SetText(SongList.getTitleFromPath(path));
+            Clipboard.SetText(Configs.getTitleFromPath(path));
         }
         
         private void Filter_OnClick(object sender, RoutedEventArgs routedEventArgs)
@@ -44,13 +46,17 @@ namespace EMP.main.emp.view.context
             //TODO: Currently bugged, maybe related to the fact that it's not being called from the MainFrame itself? 
         }
         
-        // This method is used to queue a song up.
+        /**
+         * This method is used to queue a song up.
+         */
         private void QueueNext_OnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             
         }
         
-        // This method is used to ignore a song from being played.
+        /**
+         * This method is used to ignore a song from being played.
+         */
         private void Exclude_OnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             EladariaPlayer.excludeSong(path);

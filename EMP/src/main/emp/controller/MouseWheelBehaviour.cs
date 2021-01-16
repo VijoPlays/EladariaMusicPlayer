@@ -4,6 +4,9 @@ using System.Windows.Input;
 
 namespace EMP.main.emp.controller
 {
+    /**
+     * This class controls the behaviour of a mouse wheel over a slider.
+     */
     public static class MouseWheelBehavior
     {
         public static readonly DependencyProperty ValueProperty =

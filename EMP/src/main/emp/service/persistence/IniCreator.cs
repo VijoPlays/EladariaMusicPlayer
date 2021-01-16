@@ -5,6 +5,9 @@ using System.Text;
 
 namespace EMP.main.emp.service.persistence
 {
+    /**
+     * This class manages and saves info into an .ini file.
+     */
     internal class IniCreator
     {
         private readonly string EXE = Assembly.GetExecutingAssembly().GetName().Name;

@@ -39,3 +39,5 @@ G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.ShellExten
 G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\context\SongListContext.baml
 G:\Program Code\cs\EMP\EMP\EMP\obj\Debug\src\main\emp\view\context\SongListContext.g.cs
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\nunit.framework.dll
+G:\Program Code\cs\EMP\EMP\EMP\bin\Debug\nunit.framework.xml
