@@ -2,9 +2,9 @@ name: CI/CD
 
 on:
   push:
-    branches: [ 3-refactoring, master, dev ]
+    branches: [ master, dev ]
   pull_request:
-    branches: [ 3-refactoring, master, dev ]
+    branches: [ master, dev ]
 
 jobs:
   build:
@@ -21,3 +21,4 @@ jobs:
       run: dotnet restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      

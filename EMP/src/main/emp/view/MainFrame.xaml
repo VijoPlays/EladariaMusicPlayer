@@ -45,7 +45,8 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-
+        
+        <!-- Slider and PlayMenu -->
         <StackPanel
             Grid.Row="0"
             Grid.RowSpan="2"
@@ -55,13 +56,14 @@
                 x:Name="SliderVolume" />
             <playmenu:PlayMenu
                 x:Name="PlayMenu" />
-
         </StackPanel>
 
+        <!-- MenuBar -->
         <Grid Row="2">
             <view:MenuBar x:Name="menuBar" />
         </Grid>
-
+        
+        <!-- Lower Menu//Things below MenuBar -->
         <Grid Row="3" Grid.RowSpan="19">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -72,8 +74,44 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="TestButton" />
-            <Grid Grid.Column="1" Grid.ColumnSpan="6">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition />                
+                <RowDefinition />                
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            
+            <!-- New Playlist Button/Left Side -->
+            <Button Grid.Column="0" x:Name="playlistButton" Grid.Row="0"> 
+                <TextBlock>
+                    <Run Text="New Playlist" />
+                </TextBlock>
+            </Button>
+            
+            <!-- Playlist Menu/Left Side -->
+            <TextBlock Grid.Column="0"  Grid.Row="1" Grid.RowSpan="20"/>
+            
+            <!-- SongList/Right Side -->
+            <Grid Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="0" Grid.RowSpan="21">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -81,8 +119,10 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-
+                
+                <!-- Box above SongList -->
                 <TextBox Grid.Row="0" x:Name="TestBox" />
+                <!-- SongList -->
                 <panels:SongList Grid.Row="1" Grid.RowSpan="4" x:Name="SongList" />
             </Grid>
         </Grid>

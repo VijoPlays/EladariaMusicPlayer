@@ -6,12 +6,16 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using EMP.main.emp.model;
+using EMP.main.emp.service.persistence;
 using EMP.main.emp.view.context;
 using EMP.main.emp.view.panels.playmenu;
 using File = TagLib.File;
 
 namespace EMP.main.emp.view.panels
 {
+    /**
+     * This class implements the list of songs.
+     */
     public partial class SongList : DataGrid
     {
         private EladariaPlayer mediaPlayer;
@@ -43,7 +47,7 @@ namespace EMP.main.emp.view.panels
             int i = 1, j = 0;
             Song song;
 
-            var pathlist = MainFrame.getConfigs().getPaths();
+            var pathlist = Configs.getPaths();
 
             while (j < pathlist.Count)
             {
@@ -109,22 +113,11 @@ namespace EMP.main.emp.view.panels
             var index = song.Count - 1;
             string path = songDictionary[index];
 
-            playMenu.setTitle(getTitleFromPath(path));
+            playMenu.setTitle(Configs.getTitleFromPath(path));
 
             Uri uri = new Uri(path);
             mediaPlayer.Open(uri);
             mediaPlayer.loopPlay(path);
-        }
-
-        //This method grabs the title from any song/path and cuts out the file location, as well as the file extension.
-        public static string getTitleFromPath(string path)
-        {
-            string[] pathSplit = path.Split('\\');
-
-            string titleWithMP3 = pathSplit[pathSplit.Length - 1];
-            string[] titleWithoutMP3 = titleWithMP3.Split(new[] { ".mp3" }, StringSplitOptions.None);
-            
-            return titleWithoutMP3[0];
         }
 
         private void rightClick(object sender, MouseButtonEventArgs e)

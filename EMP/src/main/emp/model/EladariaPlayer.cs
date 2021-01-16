@@ -8,22 +8,19 @@ using EMP.main.emp.view;
 
 namespace EMP.main.emp.model
 {
+    /**
+     * This is a modified MediaPlayer to allow special functions.
+     */
     public class EladariaPlayer : MediaPlayer
     {
         private bool playing, shuffle = true, repeat, tooFewSongs, playNext;
-        private static List<string> remainingSongs;
+        private static List<string> remainingSongs = new List<string>();
         private static int missingSongsSize = 10; //Change Size of queue to change how many songs are removed from remainingSongs
         private static Queue missingSongs = new Queue(missingSongsSize);
-        private Configs configs = MainFrame.getConfigs(); //Maybe remove?
 
         public EladariaPlayer()
         {
             MediaEnded += mediaFinished;
-        }
- 
-        public void setConfigs(Configs configs)
-        {
-            this.configs = configs;
         }
 
         public void reverseShuffle()
@@ -61,18 +58,19 @@ namespace EMP.main.emp.model
             missingSongs = new Queue(size);
         }
 
-        public void setSongDictionary(List<string> songDictionary)
+        public bool setSongDictionary(List<string> songDictionary)
         {
             remainingSongs = songDictionary.ToList();
             if (songDictionary.Count - missingSongsSize < 0)
             {
                 tooFewSongs = true;
             }
-        }
+            else
+            {
+                tooFewSongs = false;
+            }
 
-        public Configs getConfigs()
-        {
-            return configs;
+            return tooFewSongs;
         }
 
         public void loopPlay()
@@ -90,7 +88,9 @@ namespace EMP.main.emp.model
             excludeSong(path);
         }
 
-        //This method is used to loop automatically after a song has finished playing.
+        /**
+         * This method is used to loop automatically after a song has finished playing.
+         */
         private void mediaFinished(object sender, EventArgs eventArgs)
         {
             if (playNext)

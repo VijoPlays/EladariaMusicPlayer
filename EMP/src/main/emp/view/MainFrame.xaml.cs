@@ -10,7 +10,6 @@ namespace EMP.main.emp.view
     public partial class MainFrame
     {
         private static readonly EladariaPlayer mediaPlayer = new EladariaPlayer();
-        private static readonly Configs configs = new Configs();
 
         public MainFrame()
         {
@@ -18,7 +17,7 @@ namespace EMP.main.emp.view
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Title = "Eladaria Music Player";
 
-            TestButton.Click += jumpButton; //REMOVE
+            playlistButton.Click += newPlaylistButton;
             setMediaPlayers();
 
             Closed += processTerminated;
@@ -27,18 +26,14 @@ namespace EMP.main.emp.view
             SongList.setSongDictionary();
         }
 
-        public void jumpButton(object sender, EventArgs e) //REMOVE
+        public void newPlaylistButton(object sender, EventArgs e) //TODO: Impl
         {
+            
         }
-
-        public static Configs getConfigs()
-        {
-            return configs;
-        }
-
+        
         private void setUpSettings()
         {
-            var volume = configs.getVolume();
+            var volume = Configs.getVolume();
             if (string.IsNullOrEmpty(volume))
             {
                 SliderVolume.Value = 50;
@@ -53,7 +48,7 @@ namespace EMP.main.emp.view
 
         private void processTerminated(object sender, EventArgs eventArgs)
         {
-            configs.setVolume(SliderVolume.Value.ToString());
+            Configs.setVolume(SliderVolume.Value.ToString());
             //TODO: Save all the configs things in here
         }
 
