@@ -7,7 +7,7 @@ namespace EMP.test.emp
     {
         
         [TestCase]
-        public void testThis()
+        public void testThis() //TODO: For the refactoring: Only add some tests 
         {
             string a = "";
             string b = a;

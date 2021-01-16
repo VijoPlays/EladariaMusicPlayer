@@ -17,7 +17,7 @@ namespace EMP.main.emp.view
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Title = "Eladaria Music Player";
 
-            TestButton.Click += jumpButton; //REMOVE
+            playlistButton.Click += newPlaylistButton;
             setMediaPlayers();
 
             Closed += processTerminated;
@@ -26,8 +26,9 @@ namespace EMP.main.emp.view
             SongList.setSongDictionary();
         }
 
-        public void jumpButton(object sender, EventArgs e) //REMOVE
+        public void newPlaylistButton(object sender, EventArgs e) //TODO: Impl
         {
+            
         }
         
         private void setUpSettings()
