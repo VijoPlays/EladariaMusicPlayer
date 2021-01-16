@@ -7,6 +7,9 @@ using EMP.main.emp.service;
 
 namespace EMP.main.emp.view.empres
 {
+    /**
+     * This class implements the <class> MousewheelBehavior.cs </class> to interact with the volume slider.
+     */
     public partial class SliderVolumeEMP : Slider
     {
         private static bool dragStarted, mouseOverVol;

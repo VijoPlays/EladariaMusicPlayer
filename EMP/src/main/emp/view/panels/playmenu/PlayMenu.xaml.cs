@@ -4,6 +4,9 @@ using EMP.main.emp.model;
 
 namespace EMP.main.emp.view.panels.playmenu
 {
+    /**
+     * This class implements the player at the top of the application.
+     */
     public partial class PlayMenu : Grid
     {
         private EladariaPlayer mediaPlayer;

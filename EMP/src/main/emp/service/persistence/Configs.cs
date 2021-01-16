@@ -4,37 +4,40 @@ using System.IO;
 
 namespace EMP.main.emp.service.persistence
 {
-    public class Configs
+    /**
+     * This class manages the IniCreator to manage and retrieve info from the IniCreator.
+     */
+    public static class Configs
     {
-        private IniCreator configsFile;
+        private static IniCreator configsFile;
 
-        private string eladariaFolder = Path.DirectorySeparatorChar + "Eladaria Studios" + Path.DirectorySeparatorChar + "EMP";
+        private static string eladariaFolder = Path.DirectorySeparatorChar + "Eladaria Studios" + Path.DirectorySeparatorChar + "EMP";
 
-        private readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private static readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-        public Configs()
+        static Configs()
         {
             appendPaths();
             Directory.CreateDirectory(eladariaFolder);
         }
 
-        private void appendPaths()
+        private static void appendPaths()
         {
             eladariaFolder = path + eladariaFolder;
             configsFile = new IniCreator(eladariaFolder + Path.DirectorySeparatorChar + "configs.ini");
         }
 
-        public string getVolume()
+        public static string getVolume()
         {
             return configsFile.Read("Volume", "Settings");
         }
 
-        public void setVolume(string volume)
+        public static void setVolume(string volume)
         {
             configsFile.Write("Volume", volume, "Settings");
         }
 
-        public List<string> getPaths()
+        public static List<string> getPaths()
         {
             var paths = new List<string>();
             var i = 1;
@@ -47,7 +50,7 @@ namespace EMP.main.emp.service.persistence
             return paths;
         }
         
-        public void setPaths(string path)
+        public static void setPaths(string path)
         {
             var i = 1;
             while (configsFile.KeyExists("Path" + i, "Paths")) i++;
@@ -57,7 +60,7 @@ namespace EMP.main.emp.service.persistence
             configsFile.Write(pathcount, path, "Paths");
         }
 
-        public void clearPath(string pathToKill)         //TODO: Test this one
+        public static void clearPath(string pathToKill)         //TODO: Test this one
         {
             var allPaths = new List<string>();
             var i = 1;
@@ -77,6 +80,19 @@ namespace EMP.main.emp.service.persistence
 
             i = 1;
             while (allPaths.Count > i) setPaths(allPaths[i]);
+        }
+        
+        /**
+         * This method grabs the title from any song/path and cuts out the file location, as well as the file extension.
+         */
+        public static string getTitleFromPath(string path)
+        {
+            string[] pathSplit = path.Split('\\');
+
+            string titleWithMP3 = pathSplit[pathSplit.Length - 1];
+            string[] titleWithoutMP3 = titleWithMP3.Split(new[] { ".mp3" }, StringSplitOptions.None);
+            
+            return titleWithoutMP3[0];
         }
     }
 }
