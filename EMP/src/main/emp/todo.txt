@@ -4,3 +4,15 @@ hover over icon -> show next/previous play/stop
 MB4/5 next/prev
 smart playlist
 play next
+
+
+
+#### TODO: refactor & doc & Tests & CICD on Master
+.github/workflows/dotnet-core.yml
+name: CI/CD
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
