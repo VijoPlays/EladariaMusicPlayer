@@ -62,3 +62,6 @@ namespace EMP.main.emp.view.panels.playmenu
         }
     }
 }
+
+
+//TODO Next: PlayMenu Skip/Previous would be dope

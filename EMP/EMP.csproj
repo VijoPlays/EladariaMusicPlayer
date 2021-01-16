@@ -90,7 +90,8 @@
         <Compile Include="src\main\emp\view\panels\SongList.xaml.cs">
           <DependentUpon>SongList.xaml</DependentUpon>
         </Compile>
-        <Compile Include="src\test\emp\ConfigTests.cs" />
+        <Compile Include="src\test\emp\model\EladariaPlayerTest.cs" />
+        <Compile Include="src\test\emp\service\ConfigTests.cs" />
         <Page Include="App.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>

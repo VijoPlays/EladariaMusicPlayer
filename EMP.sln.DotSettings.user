@@ -2,6 +2,55 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="G:\Program Code\cs\EMP\EMP\packages\TagLibSharp.2.2.0\lib\net45\TagLibSharp.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3f076bcf_002D4122_002D44b6_002Db3d2_002Dfb1583001ddd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Solution /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0bb42187_002D53f2_002D4bb1_002Db188_002D8d1ebb21f0c6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="pathTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.ConfigTests.pathTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=124d5a7b_002D2485_002D4e38_002Db8f6_002D4a946e20ab0d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="pathTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.ConfigTests.pathTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4f57edad_002D253f_002D494d_002Da25b_002Daf03e4078639/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="pathTest #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.ConfigTests.pathTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=70c42f43_002D3cb1_002D429f_002Dac81_002D5d8c877a6884/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="pathTest #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.ConfigTests.pathTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=75d3728f_002D447b_002D49a6_002Dbe67_002D3ccbeafdbc85/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="pathTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.ConfigTests.pathTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b41788c8_002D7e2b_002D4368_002Daba9_002Dc3fae4d3054c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="pathTest #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Or&gt;&#xD;
+      &lt;TestAncestor&gt;&#xD;
+        &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.ConfigTests&lt;/TestId&gt;&#xD;
+      &lt;/TestAncestor&gt;&#xD;
+      &lt;TestAncestor&gt;&#xD;
+        &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.model.EladariaPlayerTest.missingSongsTest&lt;/TestId&gt;&#xD;
+      &lt;/TestAncestor&gt;&#xD;
+    &lt;/Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.model.EladariaPlayerTest&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eef17443_002Dae0f_002D4336_002D83b9_002D1588cd7b042f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ConfigTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.ConfigTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f68dae7d_002D2dc3_002D4c4b_002Db6a9_002D55695725ac3a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EladariaPlayerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C9C790E7-92AC-4771-A867-ACABF329100D::.NETFramework,Version=v4.7.1::EMP.test.emp.model.EladariaPlayerTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

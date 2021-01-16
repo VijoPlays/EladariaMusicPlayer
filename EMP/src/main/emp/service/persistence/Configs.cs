@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows.Controls;
 
 namespace EMP.main.emp.service.persistence
 {
@@ -59,27 +60,26 @@ namespace EMP.main.emp.service.persistence
 
             configsFile.Write(pathcount, path, "Paths");
         }
-
-        public static void clearPath(string pathToKill)         //TODO: Test this one
+        
+        public static void clearPath(string pathToKill) //TODO: Add Remove Folder in UI
         {
-            var allPaths = new List<string>();
+            var allPaths = getPaths();
             var i = 1;
-            configsFile.DeleteKey(pathToKill);
-            while (configsFile.KeyExists("Path" + i, "Paths"))
+            bool deleted = false;
+
+            while (!deleted)
             {
-                allPaths.Add(configsFile.Read("Path" + i));
+                string pathCount = "Path" + i;
+                string comparedPath = allPaths[i - 1];
+                
+                if(comparedPath.Equals(pathToKill))
+                {
+                    configsFile.DeleteKey(pathCount, "Paths");
+                    deleted = true;
+                }
+                
                 i++;
             }
-
-            i++; //Keikaku's Note: Two While loops are intended. This way any key can be deleted, even in the middle.
-            while (configsFile.KeyExists("Path" + i, "Paths"))
-            {
-                allPaths.Add(configsFile.Read("Path" + i));
-                i++;
-            }
-
-            i = 1;
-            while (allPaths.Count > i) setPaths(allPaths[i]);
         }
         
         /**
